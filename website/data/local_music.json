@@ -5,7 +5,8 @@
     {
       "title": "败走",
       "linkTitle": "败走",
-      "file": "./music/败走.m4a",
+      "file": "./music/baizou.m4a",
+      "fileCandidates": ["./music/败走.m4a"],
       "cover": "./music/败走.png",
       "voicebank": "STRAIGHT",
       "tierId": "hall"
@@ -13,14 +14,16 @@
     {
       "title": "雪人",
       "linkTitle": "雪人",
-      "file": "./music/雪人.m4a",
+      "file": "./music/xueren.m4a",
+      "fileCandidates": ["./music/雪人.m4a"],
       "cover": "./music/雪人.png",
       "voicebank": "SOFT"
     },
     {
       "title": "热异常",
       "linkTitle": "热异常",
-      "file": "./music/热异常.m4a",
+      "file": "./music/reyichang.m4a",
+      "fileCandidates": ["./music/热异常.m4a"],
       "cover": "./music/热异常.png",
       "producer": "Earthy X6",
       "voicebank": "STRAIGHT",
@@ -29,7 +32,8 @@
     {
       "title": "石榴石之泪",
       "linkTitle": "石榴石之泪",
-      "file": "./music/石榴石之泪.m4a",
+      "file": "./music/shiliushizhilei.m4a",
+      "fileCandidates": ["./music/石榴石之泪.m4a"],
       "cover": "./music/石榴石之泪.png",
       "voicebank": "WHISPER",
       "tierId": "hall"
@@ -38,9 +42,9 @@
       "title": "メリー・アンバースデー",
       "linkTitle": "メリー・アンバースデー",
       "aliases": ["Merry Unbirthday"],
-      "file": "./music/メリー・アンバースデー___夏山よつぎ_feat._KAIT.m4a",
+      "file": "./music/merry-unbirthday.m4a",
       "fileCandidates": [
-        "./music/merry-unbirthday.m4a",
+        "./music/メリー・アンバースデー___夏山よつぎ_feat._KAIT.m4a",
         "./music/メリー・アンバースデー.m4a",
         "./music/Merry Unbirthday.m4a"
       ],

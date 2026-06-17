@@ -15,11 +15,25 @@ async function loadData() {
     throw new Error("SITE_PATH_MISSING");
   }
 
-  overview = await fetchSiteJson("./data/overview.json");
-  allSongs = await fetchSiteJson("./data/songs_light.json");
+  const loadingEl = document.getElementById("loading");
+  const setLoading = (text) => {
+    if (loadingEl) loadingEl.textContent = text;
+  };
+
+  setLoading("正在加载概览…");
+  const overviewPromise = fetchSiteJson("./data/overview.json");
+  const songsPromise = fetchSiteJson("./data/songs_light.json");
+  const graphPromise = fetchSiteJson("./data/graph.json", { required: false });
+  const milestonesPromise = fetchSiteJson("./data/wiki_milestones.json", { required: false });
+
+  overview = await overviewPromise;
+  setLoading("正在加载曲库（约 5MB，首次可能稍慢）…");
+  [allSongs, graphData, milestones] = await Promise.all([
+    songsPromise,
+    graphPromise,
+    milestonesPromise,
+  ]);
   filteredSongs = allSongs;
-  graphData = await fetchSiteJson("./data/graph.json", { required: false });
-  milestones = await fetchSiteJson("./data/wiki_milestones.json", { required: false });
 }
 
 function formatNumber(num) {

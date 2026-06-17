@@ -359,6 +359,24 @@ function bindHomeAudioEvents() {
   });
 
   audio.addEventListener("error", () => {
+    const track = getHomeTrack();
+    if (!track?.playUrls?.length) {
+      const title = document.getElementById("home-music-title");
+      if (title) title.textContent = "无法加载该曲目";
+      return;
+    }
+    const current = track.file;
+    const idx = track.playUrls.indexOf(current);
+    const next = track.playUrls[idx + 1];
+    if (next) {
+      track.file = next;
+      HOME_MUSIC.audio.src = next;
+      HOME_MUSIC.audio.load();
+      HOME_MUSIC.audio.play().catch(() => {});
+      return;
+    }
+    track.fileMissing = true;
+    renderHomeTrackList();
     const title = document.getElementById("home-music-title");
     if (title) title.textContent = "无法加载该曲目";
   });
@@ -414,78 +432,29 @@ function mergeTrackLists(manifestTracks, scannedTracks) {
   return [...map.values()];
 }
 
-async function probeHomeTrackFile(path) {
-  const url = homeMusicResolve(path);
-  const attempts = [{ method: "HEAD" }, { method: "GET", headers: { Range: "bytes=0-0" } }];
-  for (const opts of attempts) {
-    try {
-      const res = await fetch(url, opts);
-      if (res.ok || res.status === 206) return url;
-    } catch {
-      /* try next */
-    }
-  }
-  return null;
+function getTrackPlayUrls(track) {
+  const raw = [track.file, ...(track.fileCandidates || [])].filter(Boolean);
+  return [...new Set(raw.map((p) => homeMusicResolve(p)))];
+}
+
+function finalizeHomeTracks(tracks) {
+  return (tracks || []).map((track) => {
+    const playUrls = getTrackPlayUrls(track);
+    return {
+      ...track,
+      playUrls,
+      file: playUrls[0] || homeMusicResolve(track.file),
+      fileMissing: false,
+    };
+  });
 }
 
 async function resolveHomeTrackFiles(tracks) {
-  const birthdayCandidates =
-    typeof KAITO_BIRTHDAY_LOCAL_FILES === "object" && Array.isArray(KAITO_BIRTHDAY_LOCAL_FILES)
-      ? KAITO_BIRTHDAY_LOCAL_FILES
-      : [
-          "./music/メリー・アンバースデー___夏山よつぎ_feat._KAIT.m4a",
-          "./music/merry-unbirthday.m4a",
-          "./music/メリー・アンバースデー.m4a",
-          "./music/Merry Unbirthday.m4a",
-        ];
-
-  const resolved = [];
-  for (const track of tracks) {
-    const rawPaths = track.kaitoBirthday
-      ? [track.file, ...(track.fileCandidates || []), ...birthdayCandidates]
-      : [track.file, ...(track.fileCandidates || [])];
-
-    const paths = [...new Set(rawPaths.filter(Boolean))];
-
-    let fileUrl = null;
-    for (const path of paths) {
-      fileUrl = await probeHomeTrackFile(path);
-      if (fileUrl) break;
-    }
-
-    if (fileUrl) {
-      resolved.push({ ...track, file: fileUrl, fileMissing: false });
-      continue;
-    }
-
-    resolved.push({
-      ...track,
-      file: homeMusicResolve(track.file),
-      fileMissing: true,
-    });
-  }
-  return resolved;
+  return finalizeHomeTracks(tracks);
 }
 
 async function verifyHomeTracks(tracks) {
-  const ok = [];
-  for (const track of tracks) {
-    if (track.fileMissing === false) {
-      ok.push(track);
-      continue;
-    }
-    const exists = await probeHomeTrackFile(track.file);
-    if (exists) {
-      ok.push({ ...track, file: exists, fileMissing: false });
-      continue;
-    }
-    ok.push({
-      ...track,
-      file: homeMusicResolve(track.file),
-      fileMissing: true,
-    });
-  }
-  return ok;
+  return tracks;
 }
 
 async function loadHomeMusicData() {
