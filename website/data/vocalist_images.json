@@ -1,0 +1,19 @@
+{
+  "note": "里程碑 Treemap 角色 → 立绘路径（assets/characters/）",
+  "vocalists": {
+    "初音未来": { "id": "miku", "image": "assets/characters/miku.png" },
+    "镜音铃": { "id": "rin", "image": "assets/characters/rin.png" },
+    "镜音连": { "id": "len", "image": "assets/characters/len.png" },
+    "巡音流歌": { "id": "luka", "image": "assets/characters/luka.png" },
+    "MEIKO": { "id": "meiko", "image": "assets/characters/meiko.png" },
+    "KAITO": { "id": "kaito", "image": "assets/characters/kaito-v3.png" },
+    "GUMI": { "id": "gumi", "image": "assets/characters/gumi.png" },
+    "IA": { "id": "ia", "image": "assets/characters/ia.png" },
+    "flower": { "id": "vflower", "image": "assets/characters/vflower.png" },
+    "歌爱雪": { "id": "yuki", "image": "assets/characters/yuki.png" },
+    "重音Teto": { "id": "teto", "image": "assets/characters/teto.png" },
+    "洛天依": { "id": "luo-tianyi", "image": "assets/characters/luo-tianyi.png" },
+    "可不": { "id": "kafu", "image": "assets/characters/kafu.png" },
+    "星尘": { "id": "xingchen", "image": "assets/characters/kaito-v3.png" }
+  }
+}

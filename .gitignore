@@ -1,0 +1,31 @@
+# 线上网站只需 website/ 与 .github/，以下不进入 Git
+
+# 根目录大文件（网站已使用 website/data 内 JSON）
+kaito_vocadb_songs.json
+kaito_vocadb_songs.csv
+kaito_songs.csv
+relations.json
+
+# 本地素材备份（已复制到 website/music、website/assets）
+歌曲/
+图片/
+
+# 开发临时文件
+_probe*
+probe*.txt
+_myth*.txt
+_sample.html
+cookies.txt
+
+# 数据重建中间产物（非网站运行必需）
+milestone_data/
+
+# 根目录 Python 脚本（本地抓数据用，部署不需要）
+/*.py
+
+# 编辑器与系统
+.vscode/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

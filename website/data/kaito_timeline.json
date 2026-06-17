@@ -1,0 +1,77 @@
+{
+  "title": "KAITO 历史时间轴",
+  "events": [
+    {
+      "year": 2006,
+      "label": "02/17",
+      "title": "VOCALOID KAITO 发售",
+      "desc": "Crypton 第二位日语 VOCALOID、首位男性制品，声源风雅直人。",
+      "tag": "product",
+      "highlight": true
+    },
+    {
+      "year": 2007,
+      "label": "热潮",
+      "title": "初音未来带动的翻红",
+      "desc": "VOCALOID 文化爆发，KAITO 从滞销库存变为人气角色。",
+      "tag": "culture"
+    },
+    {
+      "year": 2008,
+      "label": "代表曲",
+      "title": "《サンドリヨン》等现象曲",
+      "desc": "doriko 等 P 主作品涌现，KAITO 独唱生态逐渐成型。",
+      "tag": "song",
+      "song": "サンドリヨン",
+      "url": "https://vocadb.net/S/1047"
+    },
+    {
+      "year": 2011,
+      "label": "传说",
+      "title": "《Bad ∞ End ∞ Night》",
+      "desc": "ひとしずく×やま△ 六人合唱传说曲，KAITO 核心角色之一。",
+      "tag": "milestone",
+      "song": "Bad ∞ End ∞ Night",
+      "url": "https://vocadb.net/S/4948"
+    },
+    {
+      "year": 2013,
+      "label": "02/15",
+      "title": "KAITO V3 发售",
+      "desc": "STRAIGHT / SOFT / WHISPER / ENGLISH 多声线，iXima 重绘形象。",
+      "tag": "product",
+      "highlight": true
+    },
+    {
+      "year": 2014,
+      "label": "V3 活跃",
+      "title": "多声线作品激增",
+      "desc": "Whisper、Soft 等声线版本在 Nico / YouTube 广泛传播。",
+      "tag": "voice"
+    },
+    {
+      "year": 2019,
+      "label": "传说",
+      "title": "《シャンティ》",
+      "desc": "KAITO 独唱传说级代表作，后成为 Nico 神话曲。",
+      "tag": "milestone",
+      "song": "シャンティ",
+      "url": "https://vocadb.net/S/265052"
+    },
+    {
+      "year": 2021,
+      "label": "B站",
+      "title": "Bilibili 殿堂曲增多",
+      "desc": "中文圈二次创作与翻唱持续活跃，跨平台里程碑曲增加。",
+      "tag": "platform"
+    },
+    {
+      "year": 2024,
+      "label": "现在",
+      "title": "持续活跃的创作生态",
+      "desc": "VocaDB 收录 2 万+ KAITO 相关曲目，合作网络不断扩展。",
+      "tag": "now",
+      "highlight": true
+    }
+  ]
+}

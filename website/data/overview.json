@@ -1,0 +1,422 @@
+{
+  "generated_from": "kaito_vocadb_songs.csv",
+  "total_songs": 23255,
+  "solo_songs": 12606,
+  "collab_songs": 10649,
+  "unique_producers": 5644,
+  "unique_collaborators": 1470,
+  "year_range": [
+    "2003",
+    "2026"
+  ],
+  "yearly": [
+    {
+      "year": "2003",
+      "count": 6
+    },
+    {
+      "year": "2006",
+      "count": 8
+    },
+    {
+      "year": "2007",
+      "count": 307
+    },
+    {
+      "year": "2008",
+      "count": 1617
+    },
+    {
+      "year": "2009",
+      "count": 1333
+    },
+    {
+      "year": "2010",
+      "count": 1079
+    },
+    {
+      "year": "2011",
+      "count": 942
+    },
+    {
+      "year": "2012",
+      "count": 741
+    },
+    {
+      "year": "2013",
+      "count": 1371
+    },
+    {
+      "year": "2014",
+      "count": 1126
+    },
+    {
+      "year": "2015",
+      "count": 1001
+    },
+    {
+      "year": "2016",
+      "count": 1051
+    },
+    {
+      "year": "2017",
+      "count": 896
+    },
+    {
+      "year": "2018",
+      "count": 929
+    },
+    {
+      "year": "2019",
+      "count": 781
+    },
+    {
+      "year": "2020",
+      "count": 920
+    },
+    {
+      "year": "2021",
+      "count": 1060
+    },
+    {
+      "year": "2022",
+      "count": 1420
+    },
+    {
+      "year": "2023",
+      "count": 1785
+    },
+    {
+      "year": "2024",
+      "count": 1958
+    },
+    {
+      "year": "2025",
+      "count": 1852
+    },
+    {
+      "year": "2026",
+      "count": 906
+    }
+  ],
+  "song_types": [
+    {
+      "name": "Cover",
+      "value": 10956
+    },
+    {
+      "name": "Original",
+      "value": 9455
+    },
+    {
+      "name": "Remix",
+      "value": 947
+    },
+    {
+      "name": "DramaPV",
+      "value": 550
+    },
+    {
+      "name": "MusicPV",
+      "value": 499
+    },
+    {
+      "name": "Remaster",
+      "value": 432
+    },
+    {
+      "name": "Unspecified",
+      "value": 185
+    },
+    {
+      "name": "Mashup",
+      "value": 159
+    },
+    {
+      "name": "Other",
+      "value": 66
+    },
+    {
+      "name": "Instrumental",
+      "value": 6
+    }
+  ],
+  "pv_services": [
+    {
+      "name": "NicoNicoDouga",
+      "value": 6989
+    },
+    {
+      "name": "Youtube",
+      "value": 6732
+    },
+    {
+      "name": "NicoNicoDouga, Youtube",
+      "value": 3831
+    },
+    {
+      "name": "NicoNicoDouga, Piapro",
+      "value": 582
+    },
+    {
+      "name": "NicoNicoDouga, Youtube, Piapro",
+      "value": 459
+    },
+    {
+      "name": "Piapro",
+      "value": 373
+    },
+    {
+      "name": "NicoNicoDouga, Youtube, Bilibili",
+      "value": 294
+    },
+    {
+      "name": "Youtube, SoundCloud",
+      "value": 261
+    },
+    {
+      "name": "Bilibili",
+      "value": 251
+    },
+    {
+      "name": "SoundCloud",
+      "value": 227
+    }
+  ],
+  "top_producers": [
+    {
+      "name": "TracyP",
+      "value": 230
+    },
+    {
+      "name": "SweetSoSweet",
+      "value": 206
+    },
+    {
+      "name": "でんぴよP",
+      "value": 185
+    },
+    {
+      "name": "クリスタルP",
+      "value": 157
+    },
+    {
+      "name": "kyrik",
+      "value": 152
+    },
+    {
+      "name": "アレンジP",
+      "value": 143
+    },
+    {
+      "name": "Eaver",
+      "value": 140
+    },
+    {
+      "name": "欠乏症P",
+      "value": 134
+    },
+    {
+      "name": "PSiCO",
+      "value": 126
+    },
+    {
+      "name": "RKN",
+      "value": 123
+    },
+    {
+      "name": "石墨",
+      "value": 120
+    },
+    {
+      "name": "雪银",
+      "value": 107
+    },
+    {
+      "name": "hinayukki",
+      "value": 99
+    },
+    {
+      "name": "スタッフロールP",
+      "value": 98
+    },
+    {
+      "name": "natsuP",
+      "value": 93
+    }
+  ],
+  "top_collaborators": [
+    {
+      "name": "初音ミク",
+      "value": 4948
+    },
+    {
+      "name": "鏡音レン",
+      "value": 4239
+    },
+    {
+      "name": "MEIKO",
+      "value": 3910
+    },
+    {
+      "name": "巡音ルカ",
+      "value": 3429
+    },
+    {
+      "name": "鏡音リン",
+      "value": 3111
+    },
+    {
+      "name": "神威がくぽ",
+      "value": 1388
+    },
+    {
+      "name": "氷山キヨテル",
+      "value": 713
+    },
+    {
+      "name": "VY2",
+      "value": 644
+    },
+    {
+      "name": "GUMI",
+      "value": 616
+    },
+    {
+      "name": "IA",
+      "value": 491
+    },
+    {
+      "name": "重音テト",
+      "value": 440
+    },
+    {
+      "name": "結月ゆかり",
+      "value": 414
+    },
+    {
+      "name": "猫村いろは",
+      "value": 395
+    },
+    {
+      "name": "歌手音ピコ",
+      "value": 300
+    },
+    {
+      "name": "歌愛ユキ",
+      "value": 292
+    }
+  ],
+  "top_rated": [
+    {
+      "id": 164109,
+      "name": "大江戸ジュリアナイト",
+      "producer": "Mitchie M",
+      "vocalists": "初音ミク / KAITO V3 (Straight)",
+      "date": "2017-08-30",
+      "type": "Original",
+      "rating": 959,
+      "solo": false,
+      "url": "https://vocadb.net/S/164109"
+    },
+    {
+      "id": 38420,
+      "name": "アゲアゲアゲイン",
+      "producer": "Mitchie M",
+      "vocalists": "初音ミク / KAITO V3 (Unknown) / 巡音ルカ",
+      "date": "2013-10-04",
+      "type": "Original",
+      "rating": 861,
+      "solo": false,
+      "url": "https://vocadb.net/S/38420"
+    },
+    {
+      "id": 8682,
+      "name": "Bad ∞ End ∞ Night",
+      "producer": "ひとしずくP / やま△",
+      "vocalists": "初音ミク / 鏡音リン / 鏡音レン / 巡音ルカ / KAITO / MEIKO / GUMI / 神威がくぽ",
+      "date": "2012-01-15",
+      "type": "Original",
+      "rating": 834,
+      "solo": false,
+      "url": "https://vocadb.net/S/8682"
+    },
+    {
+      "id": 160589,
+      "name": "アップルドットコム",
+      "producer": "ピノキオピー",
+      "vocalists": "初音ミク / KAITO",
+      "date": "2017-07-01",
+      "type": "Original",
+      "rating": 794,
+      "solo": false,
+      "url": "https://vocadb.net/S/160589"
+    },
+    {
+      "id": 1277,
+      "name": "ヴェノマニア公の狂気",
+      "producer": "mothy",
+      "vocalists": "神威がくぽ / MEIKO / GUMI / KAITO / 初音ミク / 巡音ルカ",
+      "date": "2010-07-26",
+      "type": "Original",
+      "rating": 733,
+      "solo": false,
+      "url": "https://vocadb.net/S/1277"
+    },
+    {
+      "id": 9048,
+      "name": "iNSaNiTY",
+      "producer": "CircusP",
+      "vocalists": "KAITO / SF-A2 開発コード miki",
+      "date": "2011-04-12",
+      "type": "Original",
+      "rating": 701,
+      "solo": false,
+      "url": "https://vocadb.net/S/9048"
+    },
+    {
+      "id": 7238,
+      "name": "サンドリヨン",
+      "producer": "Dios/シグナルP / orange",
+      "vocalists": "初音ミク / KAITO",
+      "date": "2008-08-25",
+      "type": "Original",
+      "rating": 646,
+      "solo": false,
+      "url": "https://vocadb.net/S/7238"
+    },
+    {
+      "id": 251400,
+      "name": "リングの熾天使",
+      "producer": "Mitchie M",
+      "vocalists": "初音ミク / 鏡音リン / KAITO V3 (Unknown)",
+      "date": "2019-08-29",
+      "type": "Original",
+      "rating": 602,
+      "solo": false,
+      "url": "https://vocadb.net/S/251400"
+    },
+    {
+      "id": 552,
+      "name": "ACUTE",
+      "producer": "黒うさP",
+      "vocalists": "初音ミク / 巡音ルカ / KAITO",
+      "date": "2009-08-20",
+      "type": "Original",
+      "rating": 546,
+      "solo": false,
+      "url": "https://vocadb.net/S/552"
+    },
+    {
+      "id": 90017,
+      "name": "ドクター＝ファンクビート",
+      "producer": "nyanyannya",
+      "vocalists": "maimie / KAITO",
+      "date": "2015-06-12",
+      "type": "Original",
+      "rating": 540,
+      "solo": false,
+      "url": "https://vocadb.net/S/90017"
+    }
+  ]
+}

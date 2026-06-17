@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>KAITO Verse · 虚拟歌姬数据可视化</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="#" class="logo" aria-label="KAITO Verse 首页">
+        <img src="./assets/kaito-logo.png" alt="" class="logo-img" />
+        <span class="logo-word"><strong>KAITO</strong> Verse</span>
+      </a>
+
+      <nav class="site-nav" aria-label="站点导航">
+        <a href="#home">首页</a>
+        <a href="#overview">数据概览</a>
+        <a href="#charts">趋势分析</a>
+        <a href="#network">合作网络</a>
+        <a href="#milestones">里程碑</a>
+        <a href="#songs">歌曲检索</a>
+        <a href="#characters" data-page="characters">角色档案</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="hero-birthday-preview" class="birthday-preview-dock" aria-label="生日主题预览"></div>
+
+
+
+  <div id="page-main" class="site-page is-active" data-page="main">
+
+    <section id="home" class="hero-showcase">
+
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-soundwave-band" aria-hidden="true">
+
+        <canvas id="hero-soundwave"></canvas>
+
+        <p class="hero-soundwave-tagline">「让世界充满歌声」</p>
+
+      </div>
+
+      <div class="hero-inner">
+
+        <div class="hero-copy">
+
+          <p class="hero-eyebrow">VOCALOID</p>
+
+          <h1>KAITO Verse</h1>
+
+          <p class="hero-lead">探索 KAITO 的作品分布、创作者生态与合作网络</p>
+
+          <div class="hero-actions">
+            <a href="#home-music" class="hero-cta hero-cta--primary">聆听精选</a>
+            <a href="#milestones" class="hero-cta hero-cta--ghost">浏览里程碑</a>
+          </div>
+
+          <div id="hero-birthday" class="hero-birthday" aria-live="polite"></div>
+
+          <div id="today-kaito" class="today-kaito" hidden aria-live="polite"></div>
+
+        </div>
+
+        <div class="hero-visual">
+
+          <div class="hero-typo-wrap">
+
+            <img id="hero-typo-backdrop" src="./assets/kaito-dynamic.png" alt="" class="hero-typo-backdrop" aria-hidden="true" />
+
+            <canvas id="hero-typo-canvas" aria-label="KAITO 文字构成"></canvas>
+
+            <div id="hero-typo-tooltip" class="hero-typo-tooltip"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="home-music" class="home-music-section">
+
+      <canvas id="home-music-reactive" class="home-music-reactive" aria-hidden="true"></canvas>
+
+      <div class="home-music-inner">
+
+        <header class="home-music-header">
+
+          <div class="home-music-header-row">
+
+            <div>
+              <h2 id="home-music-heading" class="section-title">KAITO 歌曲</h2>
+              <p id="home-music-sub" class="section-desc">点击曲目播放</p>
+            </div>
+
+            <label class="home-music-sync-toggle" title="关闭后播放不再筛选里程碑、词云与全站数据">
+              <input type="checkbox" id="home-music-sync" checked />
+              <span class="home-music-sync-ui" aria-hidden="true"></span>
+              <span class="home-music-sync-label">里程碑联动</span>
+            </label>
+
+          </div>
+
+        </header>
+
+        <div class="home-music-layout">
+
+          <aside class="home-music-sidebar">
+
+            <ul id="home-music-list" class="home-music-list">
+
+              <li class="home-music-empty">正在加载曲目…</li>
+
+            </ul>
+
+          </aside>
+
+          <div class="home-music-player">
+
+            <div class="home-music-card">
+
+              <div class="home-music-top">
+
+                <img id="home-music-cover" class="home-music-cover" src="./music/败走.png" alt="封面" width="80" height="80" />
+
+                <div class="home-music-controls">
+
+                  <button type="button" id="home-music-play" class="home-music-play" aria-label="播放/暂停">
+
+                    <span class="home-music-play-icon" aria-hidden="true">▶</span>
+
+                  </button>
+
+                  <div class="home-music-now">
+
+                    <strong id="home-music-title">—</strong>
+
+                    <div id="home-music-meta" class="home-music-meta" hidden></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="home-music-viz-wrap">
+
+                <canvas id="home-music-viz" class="home-music-viz" aria-label="播放进度与音浪"></canvas>
+
+                <div class="home-music-time">
+
+                  <span id="home-music-current">0:00</span>
+
+                  <span id="home-music-duration">0:00</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <audio id="home-music-audio" preload="metadata"></audio>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section id="about" class="vocaloid-intro">
+
+      <div class="intro-inner">
+
+        <div class="intro-visual">
+
+          <div class="intro-visual-bg" aria-hidden="true"></div>
+
+          <img src="./assets/kaito-stand.png" alt="KAITO V3 立绘" class="intro-figure" />
+
+        </div>
+
+        <div class="intro-content">
+
+          <h2 class="section-title">虚拟歌姬介绍</h2>
+
+          <p class="intro-lead">
+
+            <strong>KAITO</strong> 是 Crypton Future Media 发行的 VOCALOID 男性日语声库，
+
+            也是 VOCALOID 史上第一位男性制品。本站点基于 <a href="https://vocadb.net/Ar/71" target="_blank" rel="noopener">VocaDB</a>
+
+            收录曲目，对其作品生态进行可视化分析。
+
+          </p>
+
+          <div class="intro-spec-grid">
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">声源</span>
+
+              <span class="intro-spec-value">风雅直人（風雅なおと）</span>
+
+            </div>
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">首发</span>
+
+              <span class="intro-spec-value">2006.02.17 · VOCALOID</span>
+
+            </div>
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">V3 再版</span>
+
+              <span class="intro-spec-value">2013.02.15 · VOCALOID3</span>
+
+            </div>
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">人设</span>
+
+              <span class="intro-spec-value">V1 Takashi Kawasaki / V3 iXima</span>
+
+            </div>
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">擅长曲风</span>
+
+              <span class="intro-spec-value">歌谣曲、流行、摇滚、民谣等</span>
+
+            </div>
+
+            <div class="intro-spec">
+
+              <span class="intro-spec-label">代表声库</span>
+
+              <span class="intro-spec-value">STRAIGHT · SOFT · WHISPER · ENGLISH</span>
+
+            </div>
+
+          </div>
+
+          <div class="intro-timeline" id="kaito-timeline"></div>
+
+          <p class="intro-source">
+
+            参考资料：
+
+            <a href="http://wiki.ivocaloid.com/vocaloid:crypton:kaito" target="_blank" rel="noopener">VocaWIKI · KAITO</a>、
+
+            <a href="https://vocadb.net/Ar/71" target="_blank" rel="noopener">VocaDB</a>、
+
+            <a href="http://www.crypton.co.jp/mp/pages/prod/vocaloid3/kaitov3.jsp" target="_blank" rel="noopener">Crypton 官方</a>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <main id="app">
+
+      <div class="loading" id="loading">正在加载数据…</div>
+
+    </main>
+
+  </div>
+
+
+
+  <div id="page-characters" class="site-page" data-page="characters"></div>
+
+
+
+  <script>
+
+    if (location.protocol === "file:") {
+
+      document.getElementById("loading").innerHTML =
+
+        "检测到 file:// 打开方式，请运行 website/start.bat 或 python serve.py 后访问 http://127.0.0.1:8080";
+
+    }
+
+  </script>
+
+
+
+  <footer class="site-footer">
+
+    数据来源 <a href="https://vocadb.net/Ar/71" target="_blank" rel="noopener">VocaDB</a>
+
+    · 里程碑数据 <a href="https://voca.wiki/" target="_blank" rel="noopener">Vocawiki</a>
+
+    · KAITO Verse 数据可视化项目
+
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+  <script src="js/site-path.js"></script>
+
+  <script src="js/kaito-mask.js"></script>
+
+  <script src="js/cross-filter.js"></script>
+
+  <script src="js/audio-reactive.js"></script>
+
+  <script src="js/verse-player.js"></script>
+
+  <script src="js/vocalist-images.js"></script>
+
+  <script src="js/site-router.js"></script>
+
+  <script src="js/hero-soundwave.js"></script>
+
+  <script src="js/hero-birthday.js"></script>
+  <script src="js/kaito-song-filter.js"></script>
+
+  <script src="js/hero-typography.js"></script>
+
+  <script src="js/voicebank-chart.js"></script>
+
+  <script src="js/verse-link.js"></script>
+
+  <script src="js/home-music.js"></script>
+
+  <script src="js/today-kaito.js"></script>
+
+  <script src="js/kaito-timeline.js"></script>
+
+  <script src="js/network.js"></script>
+
+  <script src="js/producer-bipartite.js"></script>
+
+  <script src="js/milestone-viz.js"></script>
+
+  <script src="js/milestones.js"></script>
+
+  <script src="js/characters.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script src="js/note-trail.js"></script>
+
+</body>
+
+</html>
+
+

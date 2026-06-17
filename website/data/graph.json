@@ -1,0 +1,1273 @@
+{
+  "center": "KAITO",
+  "total_collaborators": 1470,
+  "displayed_collaborators": 50,
+  "total_collaborations": 36068,
+  "min_collab_count": 3,
+  "max_graph_nodes": 50,
+  "categories": [
+    {
+      "name": "中心节点"
+    },
+    {
+      "name": "Crypton 家族"
+    },
+    {
+      "name": "其他 Vocaloid"
+    },
+    {
+      "name": "UTAU"
+    },
+    {
+      "name": "中文声库"
+    },
+    {
+      "name": "聚合"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "KAITO",
+      "name": "KAITO",
+      "symbolSize": 78,
+      "category": 0,
+      "value": 36068,
+      "share": 100.0
+    },
+    {
+      "id": "初音ミク",
+      "name": "初音ミク",
+      "symbolSize": 60.0,
+      "category": 1,
+      "value": 4406,
+      "share": 12.22
+    },
+    {
+      "id": "鏡音レン",
+      "name": "鏡音レン",
+      "symbolSize": 55.6,
+      "category": 1,
+      "value": 3980,
+      "share": 11.03
+    },
+    {
+      "id": "MEIKO",
+      "name": "MEIKO",
+      "symbolSize": 52.2,
+      "category": 1,
+      "value": 3658,
+      "share": 10.14
+    },
+    {
+      "id": "巡音ルカ",
+      "name": "巡音ルカ",
+      "symbolSize": 48.5,
+      "category": 1,
+      "value": 3301,
+      "share": 9.15
+    },
+    {
+      "id": "鏡音リン",
+      "name": "鏡音リン",
+      "symbolSize": 44.6,
+      "category": 1,
+      "value": 2933,
+      "share": 8.13
+    },
+    {
+      "id": "神威がくぽ",
+      "name": "神威がくぽ",
+      "symbolSize": 28.5,
+      "category": 2,
+      "value": 1388,
+      "share": 3.85
+    },
+    {
+      "id": "氷山キヨテル",
+      "name": "氷山キヨテル",
+      "symbolSize": 21.2,
+      "category": 2,
+      "value": 693,
+      "share": 1.92
+    },
+    {
+      "id": "VY2",
+      "name": "VY2",
+      "symbolSize": 20.5,
+      "category": 2,
+      "value": 625,
+      "share": 1.73
+    },
+    {
+      "id": "GUMI",
+      "name": "GUMI",
+      "symbolSize": 20.4,
+      "category": 2,
+      "value": 616,
+      "share": 1.71
+    },
+    {
+      "id": "IA",
+      "name": "IA",
+      "symbolSize": 19.0,
+      "category": 2,
+      "value": 479,
+      "share": 1.33
+    },
+    {
+      "id": "重音テト",
+      "name": "重音テト",
+      "symbolSize": 18.4,
+      "category": 3,
+      "value": 426,
+      "share": 1.18
+    },
+    {
+      "id": "結月ゆかり",
+      "name": "結月ゆかり",
+      "symbolSize": 18.0,
+      "category": 2,
+      "value": 384,
+      "share": 1.06
+    },
+    {
+      "id": "猫村いろは",
+      "name": "猫村いろは",
+      "symbolSize": 18.0,
+      "category": 2,
+      "value": 383,
+      "share": 1.06
+    },
+    {
+      "id": "歌手音ピコ",
+      "name": "歌手音ピコ",
+      "symbolSize": 17.1,
+      "category": 2,
+      "value": 300,
+      "share": 0.83
+    },
+    {
+      "id": "歌愛ユキ",
+      "name": "歌愛ユキ",
+      "symbolSize": 17.0,
+      "category": 3,
+      "value": 289,
+      "share": 0.8
+    },
+    {
+      "id": "SF-A2 開発コード miki",
+      "name": "SF-A2 開発コード miki",
+      "symbolSize": 16.7,
+      "category": 2,
+      "value": 256,
+      "share": 0.71
+    },
+    {
+      "id": "VY1",
+      "name": "VY1",
+      "symbolSize": 16.5,
+      "category": 2,
+      "value": 241,
+      "share": 0.67
+    },
+    {
+      "id": "KYO",
+      "name": "KYO",
+      "symbolSize": 16.3,
+      "category": 2,
+      "value": 225,
+      "share": 0.62
+    },
+    {
+      "id": "YUU",
+      "name": "YUU",
+      "symbolSize": 16.2,
+      "category": 2,
+      "value": 207,
+      "share": 0.57
+    },
+    {
+      "id": "音街ウナ",
+      "name": "音街ウナ",
+      "symbolSize": 16.1,
+      "category": 2,
+      "value": 198,
+      "share": 0.55
+    },
+    {
+      "id": "V4 神威がくぽ (Power)",
+      "name": "V4 神威がくぽ (Power)",
+      "symbolSize": 16.0,
+      "category": 2,
+      "value": 196,
+      "share": 0.54
+    },
+    {
+      "id": "Fukase (Unknown)",
+      "name": "Fukase (Unknown)",
+      "symbolSize": 16.0,
+      "category": 2,
+      "value": 195,
+      "share": 0.54
+    },
+    {
+      "id": "WIL",
+      "name": "WIL",
+      "symbolSize": 15.9,
+      "category": 2,
+      "value": 183,
+      "share": 0.51
+    },
+    {
+      "id": "蒼姫ラピス",
+      "name": "蒼姫ラピス",
+      "symbolSize": 15.9,
+      "category": 2,
+      "value": 182,
+      "share": 0.5
+    },
+    {
+      "id": "Oliver",
+      "name": "Oliver",
+      "symbolSize": 15.8,
+      "category": 2,
+      "value": 174,
+      "share": 0.48
+    },
+    {
+      "id": "v flower",
+      "name": "v flower",
+      "symbolSize": 15.7,
+      "category": 2,
+      "value": 161,
+      "share": 0.45
+    },
+    {
+      "id": "V4 神威がくぽ (Unknown)",
+      "name": "V4 神威がくぽ (Unknown)",
+      "symbolSize": 15.7,
+      "category": 2,
+      "value": 159,
+      "share": 0.44
+    },
+    {
+      "id": "Lily",
+      "name": "Lily",
+      "symbolSize": 15.6,
+      "category": 2,
+      "value": 157,
+      "share": 0.44
+    },
+    {
+      "id": "MAYU",
+      "name": "MAYU",
+      "symbolSize": 15.6,
+      "category": 2,
+      "value": 151,
+      "share": 0.42
+    },
+    {
+      "id": "flower",
+      "name": "flower",
+      "symbolSize": 15.6,
+      "category": 2,
+      "value": 150,
+      "share": 0.42
+    },
+    {
+      "id": "Rana",
+      "name": "Rana",
+      "symbolSize": 15.5,
+      "category": 2,
+      "value": 142,
+      "share": 0.39
+    },
+    {
+      "id": "Fukase (Normal)",
+      "name": "Fukase (Normal)",
+      "symbolSize": 15.4,
+      "category": 2,
+      "value": 138,
+      "share": 0.38
+    },
+    {
+      "id": "DEX",
+      "name": "DEX",
+      "symbolSize": 15.4,
+      "category": 2,
+      "value": 135,
+      "share": 0.37
+    },
+    {
+      "id": "Big AL",
+      "name": "Big AL",
+      "symbolSize": 15.4,
+      "category": 2,
+      "value": 130,
+      "share": 0.36
+    },
+    {
+      "id": "ガチャッポイド",
+      "name": "ガチャッポイド",
+      "symbolSize": 15.3,
+      "category": 2,
+      "value": 126,
+      "share": 0.35
+    },
+    {
+      "id": "アルスロイド",
+      "name": "アルスロイド",
+      "symbolSize": 15.3,
+      "category": 2,
+      "value": 126,
+      "share": 0.35
+    },
+    {
+      "id": "YOHIOloid (Japanese)",
+      "name": "YOHIOloid (Japanese)",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 119,
+      "share": 0.33
+    },
+    {
+      "id": "CUL",
+      "name": "CUL",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 117,
+      "share": 0.32
+    },
+    {
+      "id": "Mew",
+      "name": "Mew",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 115,
+      "share": 0.32
+    },
+    {
+      "id": "AVANNA",
+      "name": "AVANNA",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 115,
+      "share": 0.32
+    },
+    {
+      "id": "kokone",
+      "name": "kokone",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 112,
+      "share": 0.31
+    },
+    {
+      "id": "V3 GUMI (English)",
+      "name": "V3 GUMI (English)",
+      "symbolSize": 15.2,
+      "category": 2,
+      "value": 111,
+      "share": 0.31
+    },
+    {
+      "id": "V4 GUMI (Unknown)",
+      "name": "V4 GUMI (Unknown)",
+      "symbolSize": 15.1,
+      "category": 2,
+      "value": 110,
+      "share": 0.3
+    },
+    {
+      "id": "Tonio",
+      "name": "Tonio",
+      "symbolSize": 15.1,
+      "category": 2,
+      "value": 107,
+      "share": 0.3
+    },
+    {
+      "id": "洛天依",
+      "name": "洛天依",
+      "symbolSize": 15.1,
+      "category": 4,
+      "value": 104,
+      "share": 0.29
+    },
+    {
+      "id": "Fukase (English)",
+      "name": "Fukase (English)",
+      "symbolSize": 15.1,
+      "category": 2,
+      "value": 104,
+      "share": 0.29
+    },
+    {
+      "id": "LEON",
+      "name": "LEON",
+      "symbolSize": 15.0,
+      "category": 2,
+      "value": 92,
+      "share": 0.26
+    },
+    {
+      "id": "唄音ウタ",
+      "name": "唄音ウタ",
+      "symbolSize": 14.9,
+      "category": 3,
+      "value": 88,
+      "share": 0.24
+    },
+    {
+      "id": "MAIKA",
+      "name": "MAIKA",
+      "symbolSize": 14.9,
+      "category": 2,
+      "value": 88,
+      "share": 0.24
+    },
+    {
+      "id": "MIRIAM",
+      "name": "MIRIAM",
+      "symbolSize": 14.9,
+      "category": 2,
+      "value": 82,
+      "share": 0.23
+    },
+    {
+      "id": "其他歌姬",
+      "name": "其他歌姬",
+      "symbolSize": 24,
+      "category": 5,
+      "value": 5870,
+      "share": 16.27
+    }
+  ],
+  "links": [
+    {
+      "source": "KAITO",
+      "target": "初音ミク",
+      "value": 4406,
+      "lineWidth": 18.854523990161216
+    },
+    {
+      "source": "KAITO",
+      "target": "鏡音レン",
+      "value": 3980,
+      "lineWidth": 18.195293912274053
+    },
+    {
+      "source": "KAITO",
+      "target": "MEIKO",
+      "value": 3658,
+      "lineWidth": 17.665880786874926
+    },
+    {
+      "source": "KAITO",
+      "target": "巡音ルカ",
+      "value": 3301,
+      "lineWidth": 17.042210823503723
+    },
+    {
+      "source": "KAITO",
+      "target": "鏡音リン",
+      "value": 2933,
+      "lineWidth": 16.351561120185313
+    },
+    {
+      "source": "KAITO",
+      "target": "神威がくぽ",
+      "value": 1388,
+      "lineWidth": 12.584510085378913
+    },
+    {
+      "source": "KAITO",
+      "target": "氷山キヨテル",
+      "value": 693,
+      "lineWidth": 9.86862467452611
+    },
+    {
+      "source": "KAITO",
+      "target": "VY2",
+      "value": 625,
+      "lineWidth": 9.518269693579391
+    },
+    {
+      "source": "KAITO",
+      "target": "GUMI",
+      "value": 616,
+      "lineWidth": 9.470071309735397
+    },
+    {
+      "source": "KAITO",
+      "target": "IA",
+      "value": 479,
+      "lineWidth": 8.671963268924495
+    },
+    {
+      "source": "KAITO",
+      "target": "重音テト",
+      "value": 426,
+      "lineWidth": 8.323258053873952
+    },
+    {
+      "source": "KAITO",
+      "target": "結月ゆかり",
+      "value": 384,
+      "lineWidth": 8.026309982634388
+    },
+    {
+      "source": "KAITO",
+      "target": "猫村いろは",
+      "value": 383,
+      "lineWidth": 8.01898813500283
+    },
+    {
+      "source": "KAITO",
+      "target": "歌手音ピコ",
+      "value": 300,
+      "lineWidth": 7.36194280611662
+    },
+    {
+      "source": "KAITO",
+      "target": "歌愛ユキ",
+      "value": 289,
+      "lineWidth": 7.26631540240041
+    },
+    {
+      "source": "KAITO",
+      "target": "SF-A2 開発コード miki",
+      "value": 256,
+      "lineWidth": 6.964404506368992
+    },
+    {
+      "source": "KAITO",
+      "target": "VY1",
+      "value": 241,
+      "lineWidth": 6.818768793336094
+    },
+    {
+      "source": "KAITO",
+      "target": "KYO",
+      "value": 225,
+      "lineWidth": 6.656775051475125
+    },
+    {
+      "source": "KAITO",
+      "target": "YUU",
+      "value": 207,
+      "lineWidth": 6.465313983058509
+    },
+    {
+      "source": "KAITO",
+      "target": "音街ウナ",
+      "value": 198,
+      "lineWidth": 6.365504310867803
+    },
+    {
+      "source": "KAITO",
+      "target": "V4 神威がくぽ (Power)",
+      "value": 196,
+      "lineWidth": 6.342925711719625
+    },
+    {
+      "source": "KAITO",
+      "target": "Fukase (Unknown)",
+      "value": 195,
+      "lineWidth": 6.331580224341137
+    },
+    {
+      "source": "KAITO",
+      "target": "WIL",
+      "value": 183,
+      "lineWidth": 6.192384022454062
+    },
+    {
+      "source": "KAITO",
+      "target": "蒼姫ラピス",
+      "value": 182,
+      "lineWidth": 6.180519568304473
+    },
+    {
+      "source": "KAITO",
+      "target": "Oliver",
+      "value": 174,
+      "lineWidth": 6.084042468464009
+    },
+    {
+      "source": "KAITO",
+      "target": "v flower",
+      "value": 161,
+      "lineWidth": 5.920918137974044
+    },
+    {
+      "source": "KAITO",
+      "target": "V4 神威がくぽ (Unknown)",
+      "value": 159,
+      "lineWidth": 5.895070367783749
+    },
+    {
+      "source": "KAITO",
+      "target": "Lily",
+      "value": 157,
+      "lineWidth": 5.86901038987472
+    },
+    {
+      "source": "KAITO",
+      "target": "MAYU",
+      "value": 151,
+      "lineWidth": 5.789511641625337
+    },
+    {
+      "source": "KAITO",
+      "target": "flower",
+      "value": 150,
+      "lineWidth": 5.776063255304481
+    },
+    {
+      "source": "KAITO",
+      "target": "Rana",
+      "value": 142,
+      "lineWidth": 5.666317694455774
+    },
+    {
+      "source": "KAITO",
+      "target": "Fukase (Normal)",
+      "value": 138,
+      "lineWidth": 5.609933074616238
+    },
+    {
+      "source": "KAITO",
+      "target": "DEX",
+      "value": 135,
+      "lineWidth": 5.56694356901034
+    },
+    {
+      "source": "KAITO",
+      "target": "Big AL",
+      "value": 130,
+      "lineWidth": 5.493892703152883
+    },
+    {
+      "source": "KAITO",
+      "target": "ガチャッポイド",
+      "value": 126,
+      "lineWidth": 5.434125833491353
+    },
+    {
+      "source": "KAITO",
+      "target": "アルスロイド",
+      "value": 126,
+      "lineWidth": 5.434125833491353
+    },
+    {
+      "source": "KAITO",
+      "target": "YOHIOloid (Japanese)",
+      "value": 119,
+      "lineWidth": 5.326493930562812
+    },
+    {
+      "source": "KAITO",
+      "target": "CUL",
+      "value": 117,
+      "lineWidth": 5.294988870588044
+    },
+    {
+      "source": "KAITO",
+      "target": "Mew",
+      "value": 115,
+      "lineWidth": 5.263131779567351
+    },
+    {
+      "source": "KAITO",
+      "target": "AVANNA",
+      "value": 115,
+      "lineWidth": 5.263131779567351
+    },
+    {
+      "source": "KAITO",
+      "target": "kokone",
+      "value": 112,
+      "lineWidth": 5.214663729392423
+    },
+    {
+      "source": "KAITO",
+      "target": "V3 GUMI (English)",
+      "value": 111,
+      "lineWidth": 5.198320384652846
+    },
+    {
+      "source": "KAITO",
+      "target": "V4 GUMI (Unknown)",
+      "value": 110,
+      "lineWidth": 5.1818810531538135
+    },
+    {
+      "source": "KAITO",
+      "target": "Tonio",
+      "value": 107,
+      "lineWidth": 5.131972519795652
+    },
+    {
+      "source": "KAITO",
+      "target": "洛天依",
+      "value": 104,
+      "lineWidth": 5.081145939024373
+    },
+    {
+      "source": "KAITO",
+      "target": "Fukase (English)",
+      "value": 104,
+      "lineWidth": 5.081145939024373
+    },
+    {
+      "source": "KAITO",
+      "target": "LEON",
+      "value": 92,
+      "lineWidth": 4.867721689022322
+    },
+    {
+      "source": "KAITO",
+      "target": "唄音ウタ",
+      "value": 88,
+      "lineWidth": 4.792575190743971
+    },
+    {
+      "source": "KAITO",
+      "target": "MAIKA",
+      "value": 88,
+      "lineWidth": 4.792575190743971
+    },
+    {
+      "source": "KAITO",
+      "target": "MIRIAM",
+      "value": 82,
+      "lineWidth": 4.675573067644416
+    },
+    {
+      "source": "KAITO",
+      "target": "其他歌姬",
+      "value": 5870,
+      "lineWidth": 20.84602889613275
+    }
+  ],
+  "sankey": {
+    "nodes": [
+      {
+        "name": "KAITO"
+      },
+      {
+        "name": "初音ミク"
+      },
+      {
+        "name": "鏡音レン"
+      },
+      {
+        "name": "MEIKO"
+      },
+      {
+        "name": "巡音ルカ"
+      },
+      {
+        "name": "鏡音リン"
+      },
+      {
+        "name": "神威がくぽ"
+      },
+      {
+        "name": "氷山キヨテル"
+      },
+      {
+        "name": "VY2"
+      },
+      {
+        "name": "GUMI"
+      },
+      {
+        "name": "IA"
+      },
+      {
+        "name": "重音テト"
+      },
+      {
+        "name": "結月ゆかり"
+      },
+      {
+        "name": "猫村いろは"
+      },
+      {
+        "name": "歌手音ピコ"
+      },
+      {
+        "name": "歌愛ユキ"
+      },
+      {
+        "name": "SF-A2 開発コード miki"
+      },
+      {
+        "name": "VY1"
+      },
+      {
+        "name": "KYO"
+      },
+      {
+        "name": "YUU"
+      },
+      {
+        "name": "音街ウナ"
+      },
+      {
+        "name": "V4 神威がくぽ (Power)"
+      },
+      {
+        "name": "Fukase (Unknown)"
+      },
+      {
+        "name": "WIL"
+      },
+      {
+        "name": "蒼姫ラピス"
+      },
+      {
+        "name": "Oliver"
+      },
+      {
+        "name": "v flower"
+      },
+      {
+        "name": "V4 神威がくぽ (Unknown)"
+      },
+      {
+        "name": "Lily"
+      },
+      {
+        "name": "MAYU"
+      },
+      {
+        "name": "flower"
+      },
+      {
+        "name": "Rana"
+      },
+      {
+        "name": "Fukase (Normal)"
+      },
+      {
+        "name": "DEX"
+      },
+      {
+        "name": "Big AL"
+      },
+      {
+        "name": "ガチャッポイド"
+      },
+      {
+        "name": "アルスロイド"
+      },
+      {
+        "name": "YOHIOloid (Japanese)"
+      },
+      {
+        "name": "CUL"
+      },
+      {
+        "name": "Mew"
+      },
+      {
+        "name": "AVANNA"
+      },
+      {
+        "name": "kokone"
+      },
+      {
+        "name": "V3 GUMI (English)"
+      },
+      {
+        "name": "V4 GUMI (Unknown)"
+      },
+      {
+        "name": "Tonio"
+      },
+      {
+        "name": "洛天依"
+      },
+      {
+        "name": "Fukase (English)"
+      },
+      {
+        "name": "LEON"
+      },
+      {
+        "name": "唄音ウタ"
+      },
+      {
+        "name": "MAIKA"
+      },
+      {
+        "name": "MIRIAM"
+      },
+      {
+        "name": "其他歌姬"
+      }
+    ],
+    "links": [
+      {
+        "source": "KAITO",
+        "target": "初音ミク",
+        "value": 4406
+      },
+      {
+        "source": "KAITO",
+        "target": "鏡音レン",
+        "value": 3980
+      },
+      {
+        "source": "KAITO",
+        "target": "MEIKO",
+        "value": 3658
+      },
+      {
+        "source": "KAITO",
+        "target": "巡音ルカ",
+        "value": 3301
+      },
+      {
+        "source": "KAITO",
+        "target": "鏡音リン",
+        "value": 2933
+      },
+      {
+        "source": "KAITO",
+        "target": "神威がくぽ",
+        "value": 1388
+      },
+      {
+        "source": "KAITO",
+        "target": "氷山キヨテル",
+        "value": 693
+      },
+      {
+        "source": "KAITO",
+        "target": "VY2",
+        "value": 625
+      },
+      {
+        "source": "KAITO",
+        "target": "GUMI",
+        "value": 616
+      },
+      {
+        "source": "KAITO",
+        "target": "IA",
+        "value": 479
+      },
+      {
+        "source": "KAITO",
+        "target": "重音テト",
+        "value": 426
+      },
+      {
+        "source": "KAITO",
+        "target": "結月ゆかり",
+        "value": 384
+      },
+      {
+        "source": "KAITO",
+        "target": "猫村いろは",
+        "value": 383
+      },
+      {
+        "source": "KAITO",
+        "target": "歌手音ピコ",
+        "value": 300
+      },
+      {
+        "source": "KAITO",
+        "target": "歌愛ユキ",
+        "value": 289
+      },
+      {
+        "source": "KAITO",
+        "target": "SF-A2 開発コード miki",
+        "value": 256
+      },
+      {
+        "source": "KAITO",
+        "target": "VY1",
+        "value": 241
+      },
+      {
+        "source": "KAITO",
+        "target": "KYO",
+        "value": 225
+      },
+      {
+        "source": "KAITO",
+        "target": "YUU",
+        "value": 207
+      },
+      {
+        "source": "KAITO",
+        "target": "音街ウナ",
+        "value": 198
+      },
+      {
+        "source": "KAITO",
+        "target": "V4 神威がくぽ (Power)",
+        "value": 196
+      },
+      {
+        "source": "KAITO",
+        "target": "Fukase (Unknown)",
+        "value": 195
+      },
+      {
+        "source": "KAITO",
+        "target": "WIL",
+        "value": 183
+      },
+      {
+        "source": "KAITO",
+        "target": "蒼姫ラピス",
+        "value": 182
+      },
+      {
+        "source": "KAITO",
+        "target": "Oliver",
+        "value": 174
+      },
+      {
+        "source": "KAITO",
+        "target": "v flower",
+        "value": 161
+      },
+      {
+        "source": "KAITO",
+        "target": "V4 神威がくぽ (Unknown)",
+        "value": 159
+      },
+      {
+        "source": "KAITO",
+        "target": "Lily",
+        "value": 157
+      },
+      {
+        "source": "KAITO",
+        "target": "MAYU",
+        "value": 151
+      },
+      {
+        "source": "KAITO",
+        "target": "flower",
+        "value": 150
+      },
+      {
+        "source": "KAITO",
+        "target": "Rana",
+        "value": 142
+      },
+      {
+        "source": "KAITO",
+        "target": "Fukase (Normal)",
+        "value": 138
+      },
+      {
+        "source": "KAITO",
+        "target": "DEX",
+        "value": 135
+      },
+      {
+        "source": "KAITO",
+        "target": "Big AL",
+        "value": 130
+      },
+      {
+        "source": "KAITO",
+        "target": "ガチャッポイド",
+        "value": 126
+      },
+      {
+        "source": "KAITO",
+        "target": "アルスロイド",
+        "value": 126
+      },
+      {
+        "source": "KAITO",
+        "target": "YOHIOloid (Japanese)",
+        "value": 119
+      },
+      {
+        "source": "KAITO",
+        "target": "CUL",
+        "value": 117
+      },
+      {
+        "source": "KAITO",
+        "target": "Mew",
+        "value": 115
+      },
+      {
+        "source": "KAITO",
+        "target": "AVANNA",
+        "value": 115
+      },
+      {
+        "source": "KAITO",
+        "target": "kokone",
+        "value": 112
+      },
+      {
+        "source": "KAITO",
+        "target": "V3 GUMI (English)",
+        "value": 111
+      },
+      {
+        "source": "KAITO",
+        "target": "V4 GUMI (Unknown)",
+        "value": 110
+      },
+      {
+        "source": "KAITO",
+        "target": "Tonio",
+        "value": 107
+      },
+      {
+        "source": "KAITO",
+        "target": "洛天依",
+        "value": 104
+      },
+      {
+        "source": "KAITO",
+        "target": "Fukase (English)",
+        "value": 104
+      },
+      {
+        "source": "KAITO",
+        "target": "LEON",
+        "value": 92
+      },
+      {
+        "source": "KAITO",
+        "target": "唄音ウタ",
+        "value": 88
+      },
+      {
+        "source": "KAITO",
+        "target": "MAIKA",
+        "value": 88
+      },
+      {
+        "source": "KAITO",
+        "target": "MIRIAM",
+        "value": 82
+      },
+      {
+        "source": "KAITO",
+        "target": "其他歌姬",
+        "value": 5870
+      }
+    ]
+  },
+  "ranking": [
+    {
+      "name": "初音ミク",
+      "value": 4406,
+      "share": 12.22
+    },
+    {
+      "name": "鏡音レン",
+      "value": 3980,
+      "share": 11.03
+    },
+    {
+      "name": "MEIKO",
+      "value": 3658,
+      "share": 10.14
+    },
+    {
+      "name": "巡音ルカ",
+      "value": 3301,
+      "share": 9.15
+    },
+    {
+      "name": "鏡音リン",
+      "value": 2933,
+      "share": 8.13
+    },
+    {
+      "name": "神威がくぽ",
+      "value": 1388,
+      "share": 3.85
+    },
+    {
+      "name": "氷山キヨテル",
+      "value": 693,
+      "share": 1.92
+    },
+    {
+      "name": "VY2",
+      "value": 625,
+      "share": 1.73
+    },
+    {
+      "name": "GUMI",
+      "value": 616,
+      "share": 1.71
+    },
+    {
+      "name": "IA",
+      "value": 479,
+      "share": 1.33
+    },
+    {
+      "name": "重音テト",
+      "value": 426,
+      "share": 1.18
+    },
+    {
+      "name": "結月ゆかり",
+      "value": 384,
+      "share": 1.06
+    },
+    {
+      "name": "猫村いろは",
+      "value": 383,
+      "share": 1.06
+    },
+    {
+      "name": "歌手音ピコ",
+      "value": 300,
+      "share": 0.83
+    },
+    {
+      "name": "歌愛ユキ",
+      "value": 289,
+      "share": 0.8
+    },
+    {
+      "name": "SF-A2 開発コード miki",
+      "value": 256,
+      "share": 0.71
+    },
+    {
+      "name": "VY1",
+      "value": 241,
+      "share": 0.67
+    },
+    {
+      "name": "KYO",
+      "value": 225,
+      "share": 0.62
+    },
+    {
+      "name": "YUU",
+      "value": 207,
+      "share": 0.57
+    },
+    {
+      "name": "音街ウナ",
+      "value": 198,
+      "share": 0.55
+    }
+  ]
+}

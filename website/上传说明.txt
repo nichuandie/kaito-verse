@@ -1,0 +1,50 @@
+KAITO Verse 发布到 GitHub Pages（不要用网页拖文件）
+
+【重要】GitHub 网页「Upload files」一次大约只能传 100 个文件，且不能稳定上传整个文件夹。
+请用 GitHub Desktop 或 Git 命令行，一次推送全部文件，没有数量限制。
+
+── 方式一：GitHub Desktop（推荐，最简单）──
+
+1. 安装 GitHub Desktop：https://desktop.github.com/
+2. 打开 → File → Add local repository
+3. 选择文件夹：kaito-verse（本项目的上一级目录）
+4. 若提示不是 Git 仓库，点「create a repository」
+5. 填写 Commit summary，例如：首次上传网站
+6. 点 Publish repository → 选你的 GitHub 账号 → 仓库名如 kaito-verse → Public
+7. 打开浏览器进入该仓库 → Settings → Pages
+8. Source 选「GitHub Actions」（不要选 Deploy from branch）
+9. 等 Actions 绿色勾出现（约 1～3 分钟）
+
+访问地址：https://你的用户名.github.io/kaito-verse/
+
+生日演示：https://你的用户名.github.io/kaito-verse/?birthday=today
+
+── 方式二：命令行 ──
+
+在 kaito-verse 文件夹打开终端，执行：
+
+git init
+git add .
+git commit -m "KAITO Verse 网站"
+git branch -M main
+git remote add origin https://github.com/你的用户名/kaito-verse.git
+git push -u origin main
+
+然后去 GitHub 仓库 Settings → Pages → Source 选 GitHub Actions。
+
+── 仓库里必须有的内容 ──
+
+.github/workflows/deploy-pages.yml   ← 自动发布
+website/                             ← 整个网站（含 music、data、js）
+
+── 推送前自检 ──
+
+□ website/music/ 里有 .m4a 和封面（否则线上无法播放）
+□ 用 start.bat 本地能正常打开
+□ 仓库设为 Public（免费 Pages 需要）
+
+── 常见错误 ──
+
+× 只上传 website 文件夹到仓库根目录但没有改 Actions → 改用 Desktop 推送整个 kaito-verse
+× 只双击 index.html 打开 → 必须用 GitHub Pages 网址访问
+× 仓库是 Private → 改为 Public 或开通 GitHub Pro

@@ -1,0 +1,235 @@
+{
+  "source": "https://piapro.net/intl/zh-cn_character.html",
+  "characters": [
+    {
+      "id": "miku",
+      "name": "初音未来",
+      "nameEn": "HATSUNE MIKU",
+      "voice": "藤田咲（Fujita Saki）",
+      "age": "16岁",
+      "height": "158cm",
+      "weight": "42kg",
+      "color": "#39C5BB",
+      "colorLabel": "苍绿色",
+      "image": "assets/characters/miku.png",
+      "vocalistTag": "初音未来",
+      "summary": "魅力十足的歌声、高音音色华丽清脆高亢、苍绿色双马尾与近未来感服装，是 Crypton 电子歌手软件的代表角色。",
+      "releases": [
+        { "title": "VOCALOID2 初音未来", "date": "2007.8.31" },
+        { "title": "初音未来 APPEND", "date": "2010.4.30" },
+        { "title": "初音未来 V3", "date": "2013.9.26" }
+      ],
+      "artist": "KEI"
+    },
+    {
+      "id": "rin",
+      "name": "镜音铃",
+      "nameEn": "KAGAMINE RIN",
+      "voice": "下田麻美（Shimoda Asami）",
+      "age": "14岁",
+      "height": "152cm",
+      "weight": "43kg",
+      "color": "#FFCC00",
+      "colorLabel": "橙黄色",
+      "image": "assets/characters/rin.png",
+      "vocalistTag": "镜音铃",
+      "summary": "活力四射的青春期少女歌声、金色波波头与高音谱号主题校服，与镜音连同为双声库角色。",
+      "releases": [
+        { "title": "VOCALOID2 镜音铃・连", "date": "2007.12.27" },
+        { "title": "镜音铃・连 APPEND", "date": "2010.12.27" },
+        { "title": "镜音铃・连 V4X", "date": "2015.12.24" }
+      ],
+      "artist": "KEI"
+    },
+    {
+      "id": "len",
+      "name": "镜音连",
+      "nameEn": "KAGAMINE LEN",
+      "voice": "下田麻美（Shimoda Asami）",
+      "age": "14岁",
+      "height": "156cm",
+      "weight": "47kg",
+      "color": "#FFEE00",
+      "colorLabel": "黄色",
+      "image": "assets/characters/len.png",
+      "vocalistTag": "镜音连",
+      "summary": "铿锵有力的少年歌声、后束短发与低音谱号主题校服，与镜音铃同捆发售。",
+      "releases": [
+        { "title": "VOCALOID2 镜音铃・连", "date": "2007.12.27" },
+        { "title": "镜音铃・连 APPEND", "date": "2010.12.27" },
+        { "title": "镜音铃・连 V4X", "date": "2015.12.24" }
+      ],
+      "artist": "KEI"
+    },
+    {
+      "id": "luka",
+      "name": "巡音流歌",
+      "nameEn": "MEGURINE LUKA",
+      "voice": "浅川悠（Asakawa Yu）",
+      "age": "20岁",
+      "height": "162cm",
+      "weight": "45kg",
+      "color": "#FF8800",
+      "colorLabel": "粉色",
+      "image": "assets/characters/luka.png",
+      "vocalistTag": "巡音流歌",
+      "summary": "酷感神秘空灵的歌声、粉色长发与成熟女性氛围的开衩式服装，首款日英双语 VOCALOID2 软件。",
+      "releases": [
+        { "title": "VOCALOID2 巡音流歌", "date": "2009.1.30" },
+        { "title": "巡音流歌 V4X", "date": "2015.3.19" }
+      ],
+      "artist": "KEI"
+    },
+    {
+      "id": "meiko",
+      "name": "MEIKO",
+      "nameEn": "MEIKO",
+      "voice": "拝郷メイコ（Haigo Meiko）",
+      "age": "—",
+      "height": "—",
+      "weight": "—",
+      "color": "#DD4444",
+      "colorLabel": "红色",
+      "image": "assets/characters/meiko.png",
+      "vocalistTag": "MEIKO",
+      "summary": "卓越唱功与力量型声线，栗色短发与红色短上衣迷你裙造型，首款日语 VOCALOID 女性声库。",
+      "releases": [
+        { "title": "MEIKO", "date": "2004.11.5" },
+        { "title": "MEIKO V3", "date": "2014.2.4" }
+      ],
+      "artist": "iXima"
+    },
+    {
+      "id": "kaito",
+      "name": "KAITO",
+      "nameEn": "KAITO",
+      "voice": "风雅なおと（Fuga Naoto）",
+      "age": "—",
+      "height": "—",
+      "weight": "—",
+      "color": "#0044FF",
+      "colorLabel": "蓝色",
+      "image": "assets/characters/kaito-v3.png",
+      "vocalistTag": "KAITO",
+      "summary": "男声爽朗清亮的声质、深蓝色头发与标志性蓝色长围巾，首款日语男声 VOCALOID 声库。",
+      "releases": [
+        { "title": "KAITO", "date": "2006.2.17" },
+        { "title": "KAITO V3", "date": "2013.2.15" }
+      ],
+      "artist": "iXima",
+      "productUrl": "https://www.vocaloid.com/en/products/show/v3l_kaito_v3_c",
+      "demos": [
+        { "title": "月雪花", "artist": "Ebot" },
+        { "title": "夢懸歌", "artist": "イントロP" },
+        { "title": "Rose+Thorn", "artist": "EmpathP" }
+      ]
+    }
+  ],
+  "extendedCharacters": [
+    {
+      "id": "gumi",
+      "name": "GUMI",
+      "nameEn": "GUMI",
+      "voice": "Megpoid",
+      "age": "—",
+      "height": "—",
+      "color": "#00CC66",
+      "colorLabel": "绿色",
+      "image": "assets/characters/gumi.png",
+      "vocalistTag": "GUMI",
+      "summary": "Internet Co. 发行的 Megpoid 系列角色，以清新多变的声线活跃于 VOCALOID 生态。",
+      "releases": [{ "title": "Megpoid", "date": "2009.6.26" }],
+      "artist": "—"
+    },
+    {
+      "id": "ia",
+      "name": "IA",
+      "nameEn": "IA",
+      "voice": "Lia",
+      "age": "—",
+      "height": "—",
+      "color": "#55DFFF",
+      "colorLabel": "浅蓝",
+      "image": "assets/characters/ia.png",
+      "vocalistTag": "IA",
+      "summary": "1st Place 发行的 ARIA ON THE PLANETES 项目角色，透明感高音是其标志。",
+      "releases": [{ "title": "IA", "date": "2012.1.27" }],
+      "artist": "Aka Akane"
+    },
+    {
+      "id": "kafu",
+      "name": "可不",
+      "nameEn": "KAFU",
+      "voice": "CeVIO AI",
+      "age": "—",
+      "height": "—",
+      "color": "#35DAC7",
+      "colorLabel": "青绿",
+      "image": "assets/characters/kafu.png",
+      "vocalistTag": "可不",
+      "summary": "KAMITSUBAKI STUDIO 旗下 CeVIO 角色，常与 KAITO 等同台出现于合唱曲里程碑。",
+      "releases": [{ "title": "可不", "date": "2022.2.25" }],
+      "artist": "—"
+    },
+    {
+      "id": "teto",
+      "name": "重音Teto",
+      "nameEn": "KASANE TETO",
+      "voice": "UTAU / SV",
+      "age": "—",
+      "height": "—",
+      "color": "#FF0000",
+      "colorLabel": "红色",
+      "image": "assets/characters/teto.png",
+      "vocalistTag": "重音Teto",
+      "summary": "由 UTAU 出身的虚拟歌手，双马尾与钻头造型深入人心，合唱曲生态中极为活跃。",
+      "releases": [{ "title": "UTAU 重音テト", "date": "2008.4.1" }],
+      "artist": "—"
+    },
+    {
+      "id": "vflower",
+      "name": "flower",
+      "nameEn": "flower",
+      "voice": "Yurin",
+      "age": "—",
+      "height": "—",
+      "color": "#DE3163",
+      "colorLabel": "紫红",
+      "image": "assets/characters/vflower.png",
+      "vocalistTag": "flower",
+      "summary": "v_flower / Gynoid 发行，中低音域与独特中性声线著称。",
+      "releases": [{ "title": "v flower", "date": "2014.5.9" }],
+      "artist": "—"
+    },
+    {
+      "id": "yuki",
+      "name": "歌爱雪",
+      "nameEn": "Kaai Yuki",
+      "voice": "Chiaki Omigawa",
+      "age": "—",
+      "height": "—",
+      "color": "#E0E0E0",
+      "colorLabel": "雪白",
+      "image": "assets/characters/yuki.png",
+      "vocalistTag": "歌爱雪",
+      "summary": "AH-Software 发行的儿童声库角色，清澈童声常用于特殊题材合唱曲。",
+      "releases": [{ "title": "歌愛ユキ", "date": "2010.10.8" }],
+      "artist": "—"
+    },
+    {
+      "id": "luo-tianyi",
+      "name": "洛天依",
+      "nameEn": "LUO TIANYI",
+      "voice": "山新",
+      "age": "15岁",
+      "height": "156cm",
+      "color": "#66CCFF",
+      "colorLabel": "天依蓝",
+      "image": "assets/characters/luo-tianyi.png",
+      "vocalistTag": "洛天依",
+      "summary": "Vsinger 旗下中文 VOCALOID 代表角色，「让世界充满歌声」的形象大使。",
+      "releases": [{ "title": "VOCALOID3 洛天依", "date": "2012.7.12" }],
+      "artist": "ideolo"
+    }
+  ]
+}
