@@ -31,7 +31,37 @@
     return fetch(resolveSitePath(path), options);
   }
 
+  async function fetchSiteJson(path, options = {}) {
+    const retries = options.retries ?? 3;
+    const required = options.required !== false;
+    let lastError = null;
+
+    for (let attempt = 0; attempt < retries; attempt += 1) {
+      try {
+        const res = await fetchSite(path, options.fetchOptions);
+        if (!res.ok) {
+          lastError = new Error(`HTTP_${res.status}:${path}`);
+          if (attempt < retries - 1) {
+            await new Promise((r) => setTimeout(r, 700 * (attempt + 1)));
+          }
+          continue;
+        }
+        return await res.json();
+      } catch (err) {
+        lastError = err;
+        if (attempt < retries - 1) {
+          await new Promise((r) => setTimeout(r, 700 * (attempt + 1)));
+        }
+      }
+    }
+
+    if (!required) return null;
+    const msg = lastError?.message || "FETCH_FAILED";
+    throw new Error(`DATA_FETCH_FAILED:${path}:${msg}`);
+  }
+
   window.resolveSitePath = resolveSitePath;
   window.fetchSite = fetchSite;
+  window.fetchSiteJson = fetchSiteJson;
   window.getSiteBase = getSiteBase;
 })();

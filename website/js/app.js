@@ -11,35 +11,15 @@ async function loadData() {
   if (window.location.protocol === "file:") {
     throw new Error("FILE_PROTOCOL");
   }
-
-  let overviewRes;
-  let songsRes;
-  let graphRes;
-  let milestonesRes;
-
-  try {
-    [overviewRes, songsRes, graphRes, milestonesRes] = await Promise.all([
-      fetchSite("./data/overview.json"),
-      fetchSite("./data/songs_light.json"),
-      fetchSite("./data/graph.json"),
-      fetchSite("./data/wiki_milestones.json"),
-    ]);
-  } catch (err) {
-    throw new Error("NETWORK_ERROR");
+  if (typeof fetchSiteJson !== "function") {
+    throw new Error("SITE_PATH_MISSING");
   }
 
-  if (!overviewRes.ok || !songsRes.ok) {
-    if (overviewRes.status === 404 || songsRes.status === 404) {
-      throw new Error("DATA_MISSING");
-    }
-    throw new Error("HTTP_ERROR");
-  }
-
-  overview = await overviewRes.json();
-  allSongs = await songsRes.json();
+  overview = await fetchSiteJson("./data/overview.json");
+  allSongs = await fetchSiteJson("./data/songs_light.json");
   filteredSongs = allSongs;
-  graphData = graphRes.ok ? await graphRes.json() : null;
-  milestones = milestonesRes.ok ? await milestonesRes.json() : null;
+  graphData = await fetchSiteJson("./data/graph.json", { required: false });
+  milestones = await fetchSiteJson("./data/wiki_milestones.json", { required: false });
 }
 
 function formatNumber(num) {
@@ -507,52 +487,106 @@ function onResize() {
   if (typeof resizeProducerBipartiteChart === "function") resizeProducerBipartiteChart();
 }
 
-function showError(code) {
+function isLocalDevHost() {
+  return /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
+}
+
+function showError(code, detail) {
+  const online = window.location.protocol.startsWith("http") && !isLocalDevHost();
+  const detailText = detail ? escapeHtml(String(detail.message || detail)) : "";
+
   const messages = {
     FILE_PROTOCOL: {
       title: "无法通过本地文件打开",
       body: `
-        <p>你正在用 <code>file://</code> 直接打开 HTML，浏览器会拦截 <code>fetch</code> 读取 JSON，因此出现 <strong>Failed to fetch</strong>。</p>
-        <p><strong>请不要</strong>双击 <code>index.html</code>，也<strong>不要</strong>使用 Cursor 的 <strong>Show Preview / Live Preview</strong>（会报 Service Worker 错误）。</p>`,
+        <p>你正在用 <code>file://</code> 直接打开 HTML，浏览器会拦截 <code>fetch</code> 读取 JSON。</p>
+        <p><strong>请不要</strong>双击 <code>index.html</code>。</p>`,
+      help: "local",
     },
-    NETWORK_ERROR: {
-      title: "无法连接数据文件",
-      body: `
-        <p>请求 <code>data/*.json</code> 失败。通常是<strong>本地服务器未启动</strong>，或预览方式不正确。</p>`,
+    SITE_PATH_MISSING: {
+      title: "站点脚本未加载",
+      body: `<p><code>js/site-path.js</code> 未成功加载，请刷新页面或检查 GitHub Pages 是否部署完整。</p>`,
+      help: online ? "online" : "local",
+    },
+    DATA_FETCH_FAILED: {
+      title: online ? "在线数据加载失败" : "无法连接数据文件",
+      body: online
+        ? `
+        <p>从 GitHub Pages 读取 <code>data/*.json</code> 失败（已自动重试）。</p>
+        <p>常见原因：</p>
+        <ul style="margin:0.5rem 0 0 1.2rem;line-height:1.75">
+          <li>当前网络访问 <code>github.io</code> 不稳定（可换 Wi‑Fi / 开代理 / 稍后再试）</li>
+          <li>浏览器缓存了旧版本（请 <strong>Ctrl+F5</strong> 强制刷新）</li>
+          <li>仓库最新代码尚未 Push / Actions 尚未部署完成</li>
+        </ul>
+        <p style="margin-top:0.85rem">可先直接打开测试链接：<br />
+          <a href="${escapeHtml(resolveSitePath?.("./data/overview.json") || "./data/overview.json")}" target="_blank" rel="noopener">overview.json</a>
+        </p>`
+        : `<p>请求 <code>data/*.json</code> 失败。通常是<strong>本地服务器未启动</strong>。</p>`,
+      help: online ? "online" : "local",
     },
     DATA_MISSING: {
       title: "数据文件不存在",
-      body: `
-        <p>找不到 <code>website/data/overview.json</code> 等文件，请先生成数据。</p>`,
+      body: `<p>找不到 <code>data/overview.json</code>，请确认 GitHub 仓库里包含 <code>website/data/</code>。</p>`,
+      help: online ? "online" : "local",
     },
     HTTP_ERROR: {
       title: "数据加载 HTTP 错误",
-      body: `<p>服务器已响应，但读取 JSON 失败。请确认 <code>website/data/</code> 下文件完整。</p>`,
+      body: `<p>服务器已响应，但读取 JSON 失败。请确认数据文件完整。</p>`,
+      help: online ? "online" : "local",
+    },
+    NETWORK_ERROR: {
+      title: online ? "页面初始化失败" : "无法连接数据文件",
+      body: online
+        ? `<p>网站脚本运行出错。请按 <strong>F12 → Console</strong> 查看详情，或强制刷新后再试。</p>`
+        : `<p>请求 <code>data/*.json</code> 失败。通常是<strong>本地服务器未启动</strong>。</p>`,
+      help: online ? "online" : "local",
     },
   };
 
-  const info = messages[code] || {
-    title: "加载失败",
-    body: `<p>${escapeHtml(String(code))}</p>`,
-  };
+  let info = messages[code];
+  if (!info && String(code).startsWith("DATA_FETCH_FAILED")) {
+    info = messages.DATA_FETCH_FAILED;
+  }
+  if (!info) {
+    info = {
+      title: "加载失败",
+      body: `<p>${escapeHtml(String(code))}</p>`,
+      help: online ? "online" : "local",
+    };
+  }
+
+  const localHelp =
+    info.help === "local"
+      ? `
+      <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0" />
+      <p><strong>本地开发打开方式：</strong></p>
+      <ol style="margin:0.5rem 0 0 1.2rem;line-height:1.8">
+        <li>双击运行 <code>website/start.bat</code></li>
+        <li>终端执行：<code>cd website &amp;&amp; python serve.py</code></li>
+      </ol>
+      <p style="margin-top:1rem">然后访问：<a href="http://127.0.0.1:8080" target="_blank" rel="noopener"><code>http://127.0.0.1:8080</code></a></p>`
+      : "";
+
+  const onlineHelp =
+    info.help === "online"
+      ? `
+      <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0" />
+      <p><strong>在线访问说明（其他设备也一样）：</strong></p>
+      <ul style="margin:0.5rem 0 0 1.2rem;line-height:1.75">
+        <li>直接打开：<a href="https://nichuandie.github.io/kaito-verse/" target="_blank" rel="noopener">https://nichuandie.github.io/kaito-verse/</a></li>
+        <li><strong>不需要</strong>安装 Python，也<strong>不需要</strong> start.bat</li>
+        <li>手机 / 平板 / 别的电脑，只要能上网访问 GitHub Pages 即可</li>
+      </ul>`
+      : "";
 
   document.getElementById("app").innerHTML = `
     <div class="error-box">
       <strong>${info.title}</strong>
       ${info.body}
-      <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0" />
-      <p><strong>正确打开方式（任选其一）：</strong></p>
-      <ol style="margin:0.5rem 0 0 1.2rem;line-height:1.8">
-        <li>双击运行 <code>website/start.bat</code></li>
-        <li>终端执行：<code>cd website &amp;&amp; python serve.py</code></li>
-        <li>Cursor 菜单：<strong>Terminal → Run Task → KAITO Verse: 启动网站服务器</strong></li>
-      </ol>
-      <p style="margin-top:1rem">然后在浏览器地址栏打开：<br />
-        <a href="http://127.0.0.1:8080" target="_blank" rel="noopener"><code>http://127.0.0.1:8080</code></a>
-      </p>
-      <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-muted)">
-        若首次运行或 CSV 有更新，请先在项目根目录执行：<code>python generate_site_data.py</code>
-      </p>
+      ${detailText ? `<p style="margin-top:0.75rem;font-size:0.82rem;color:var(--text-muted)">详情：${detailText}</p>` : ""}
+      ${localHelp}
+      ${onlineHelp}
     </div>
   `;
 }
@@ -601,7 +635,11 @@ async function init() {
     initVersePlayer();
     await loadData();
     document.getElementById("loading").remove();
-    await initHeroTypography(allSongs);
+    try {
+      await initHeroTypography(allSongs);
+    } catch (heroErr) {
+      console.warn("Hero typography skipped:", heroErr);
+    }
     initHeroSoundwave();
     initHeroBirthdayCountdown();
     if (typeof initVerseLinkData === "function") initVerseLinkData(milestones, allSongs);
@@ -657,14 +695,19 @@ async function init() {
       if (typeof resizeHeroTypography === "function") resizeHeroTypography();
     });
   } catch (error) {
-    const code =
-      error.message === "FILE_PROTOCOL" ||
-      error.message === "NETWORK_ERROR" ||
-      error.message === "DATA_MISSING" ||
-      error.message === "HTTP_ERROR"
-        ? error.message
-        : "NETWORK_ERROR";
-    showError(code);
+    console.error("KAITO Verse init failed:", error);
+    let code = error?.message || "NETWORK_ERROR";
+    if (code.startsWith("DATA_FETCH_FAILED")) code = "DATA_FETCH_FAILED";
+    else if (
+      code !== "FILE_PROTOCOL" &&
+      code !== "SITE_PATH_MISSING" &&
+      code !== "DATA_MISSING" &&
+      code !== "HTTP_ERROR" &&
+      code !== "NETWORK_ERROR"
+    ) {
+      code = "NETWORK_ERROR";
+    }
+    showError(code, error);
   }
 }
 
