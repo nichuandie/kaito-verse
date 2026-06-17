@@ -415,11 +415,7 @@ function mergeTrackLists(manifestTracks, scannedTracks) {
 
 async function probeHomeTrackFile(path) {
   const url = homeMusicResolve(path);
-  const attempts = [
-    { method: "HEAD" },
-    { method: "GET", headers: { Range: "bytes=0-0" } },
-    { method: "GET" },
-  ];
+  const attempts = [{ method: "HEAD" }, { method: "GET", headers: { Range: "bytes=0-0" } }];
   for (const opts of attempts) {
     try {
       const res = await fetch(url, opts);

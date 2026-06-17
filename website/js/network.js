@@ -92,7 +92,7 @@ function applyRadialLayout(nodes, links, width, height) {
 
 function renderGraphChart() {
   const dom = document.getElementById("chart-network");
-  if (!dom) return null;
+  if (!dom || typeof echarts === "undefined") return null;
 
   const chart = echarts.init(dom);
   const filtered = getFilteredGraph();
@@ -270,7 +270,7 @@ function renderGraphChart() {
 
 function renderSankeyChart(graphData) {
   const dom = document.getElementById("chart-sankey");
-  if (!dom || !graphData.sankey) return null;
+  if (!dom || !graphData.sankey || typeof echarts === "undefined") return null;
 
   const chart = echarts.init(dom);
   const topLinks = [...graphData.sankey.links]

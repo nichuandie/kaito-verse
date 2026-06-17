@@ -220,6 +220,7 @@ function baseChartOption() {
 
 function initYearlyChart() {
   const dom = document.getElementById("chart-yearly");
+  if (!dom || typeof echarts === "undefined") return;
   const chart = echarts.init(dom);
   chartInstances.push(chart);
 
@@ -261,6 +262,7 @@ function initYearlyChart() {
 
 function initTypeChart() {
   const dom = document.getElementById("chart-types");
+  if (!dom || typeof echarts === "undefined") return;
   const chart = echarts.init(dom);
   chartInstances.push(chart);
 
@@ -296,6 +298,7 @@ function initTypeChart() {
 
 function initRankBarChart(domId, title, data, unit = "首") {
   const dom = document.getElementById(domId);
+  if (!dom || typeof echarts === "undefined") return;
   const chart = echarts.init(dom);
   chartInstances.push(chart);
 
@@ -367,6 +370,7 @@ function initPvChart() {
   if (!data.length) return;
 
   const dom = document.getElementById("chart-pv");
+  if (!dom || typeof echarts === "undefined") return;
   const chart = echarts.init(dom);
   chartInstances.push(chart);
 
@@ -608,19 +612,28 @@ async function init() {
     renderShell();
     await initCharactersPage();
     renderStats();
-    initYearlyChart();
-    initTypeChart();
-    initRankBarChart("chart-collab", "Top 15 合作歌姬（共演次数）", overview.top_collaborators, "次");
-    initPvChart();
 
-    const producerBipChart = initProducerBipartiteChart(allSongs);
-    if (producerBipChart) chartInstances.push(producerBipChart);
+    const chartsReady = typeof loadEchartsLib === "function" ? await loadEchartsLib() : typeof echarts !== "undefined";
+    if (chartsReady) {
+      initYearlyChart();
+      initTypeChart();
+      initRankBarChart("chart-collab", "Top 15 合作歌姬（共演次数）", overview.top_collaborators, "次");
+      initPvChart();
 
-    const voicebankChart = initVoicebankChart(allSongs);
-    if (voicebankChart) chartInstances.push(voicebankChart);
+      const producerBipChart = initProducerBipartiteChart(allSongs);
+      if (producerBipChart) chartInstances.push(producerBipChart);
 
-    const networkCharts = initNetworkChart(graphData);
-    if (networkCharts?.length) chartInstances.push(...networkCharts);
+      const voicebankChart = initVoicebankChart(allSongs);
+      if (voicebankChart) chartInstances.push(voicebankChart);
+
+      const networkCharts = initNetworkChart(graphData);
+      if (networkCharts?.length) chartInstances.push(...networkCharts);
+    } else {
+      document.getElementById("charts")?.insertAdjacentHTML(
+        "beforeend",
+        `<p class="section-desc" style="color:var(--text-muted)">图表库加载失败（网络/CDN），统计数字与歌曲列表仍可用。请刷新或稍后再试。</p>`
+      );
+    }
 
     if (milestones) {
       document.getElementById("network").insertAdjacentHTML(
