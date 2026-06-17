@@ -15,6 +15,7 @@ const HOME_MUSIC = {
   sourceConnected: false,
   freqData: null,
   animId: 0,
+  playPathIndex: 0,
 };
 
 function homeMusicResolve(path) {
@@ -278,6 +279,21 @@ function updateHomeNowPlaying() {
   updateHomeCover();
 }
 
+function getTrackPlayPaths(track) {
+  return [...new Set([track?.file, ...(track?.fileCandidates || [])].filter(Boolean))];
+}
+
+function resolveTrackAudioSrc(track, pathIndex = 0) {
+  const paths = track?.playPaths || getTrackPlayPaths(track);
+  const path = paths[pathIndex];
+  if (!path) return "";
+  const resolved = homeMusicResolve(path);
+  if (resolved.startsWith("/")) {
+    return `${window.location.origin}${resolved}`;
+  }
+  return resolved;
+}
+
 function renderHomeTrackList() {
   const list = document.getElementById("home-music-list");
   if (!list) return;
@@ -289,17 +305,17 @@ function renderHomeTrackList() {
     .map(
       (t, i) => `
       <li>
-        <button type="button" class="home-music-item${i === HOME_MUSIC.index ? " active" : ""}${t.fileMissing ? " home-music-item--missing" : ""}" data-index="${i}" ${t.fileMissing ? 'disabled title="音频文件未找到"' : ""} style="${t.voicebankColor ? `--track-accent:${t.voicebankColor}` : ""}">
+        <button type="button" class="home-music-item${i === HOME_MUSIC.index ? " active" : ""}" data-index="${i}" style="${t.voicebankColor ? `--track-accent:${t.voicebankColor}` : ""}">
           <img class="home-music-item-cover" src="${homeMusicEscape(t.cover || "")}" alt="" loading="lazy" />
           <span class="home-music-item-text">
-            <span class="home-music-item-title">${homeMusicEscape(t.title || t.file)}${t.fileMissing ? "（未找到文件）" : ""}</span>
+            <span class="home-music-item-title">${homeMusicEscape(t.title || t.file)}</span>
             ${t.voicebankLabel ? `<span class="home-music-item-vb">${homeMusicEscape(t.voicebankLabel)}</span>` : ""}
           </span>
         </button>
       </li>`
     )
     .join("");
-  list.querySelectorAll(".home-music-item:not([disabled])").forEach((btn) => {
+  list.querySelectorAll(".home-music-item").forEach((btn) => {
     btn.addEventListener("click", () => selectHomeTrack(Number(btn.dataset.index), true));
   });
 }
@@ -360,42 +376,43 @@ function bindHomeAudioEvents() {
 
   audio.addEventListener("error", () => {
     const track = getHomeTrack();
-    if (!track?.playUrls?.length) {
-      const title = document.getElementById("home-music-title");
-      if (title) title.textContent = "无法加载该曲目";
+    if (!track) return;
+    const paths = track.playPaths || getTrackPlayPaths(track);
+    const nextIndex = (HOME_MUSIC.playPathIndex || 0) + 1;
+    if (nextIndex < paths.length) {
+      loadTrackAudio(track, nextIndex, true);
       return;
     }
-    const current = track.file;
-    const idx = track.playUrls.indexOf(current);
-    const next = track.playUrls[idx + 1];
-    if (next) {
-      track.file = next;
-      HOME_MUSIC.audio.src = next;
-      HOME_MUSIC.audio.load();
-      HOME_MUSIC.audio.play().catch(() => {});
-      return;
-    }
-    track.fileMissing = true;
-    renderHomeTrackList();
     const title = document.getElementById("home-music-title");
-    if (title) title.textContent = "无法加载该曲目";
+    if (title) title.textContent = `${track.title || "曲目"} · 加载失败，请刷新重试`;
   });
+}
+
+function loadTrackAudio(track, pathIndex = 0, autoplay = false) {
+  if (!track || !HOME_MUSIC.audio) return false;
+  const src = resolveTrackAudioSrc(track, pathIndex);
+  if (!src) return false;
+  HOME_MUSIC.playPathIndex = pathIndex;
+  track.currentSrc = src;
+  HOME_MUSIC.audio.src = src;
+  HOME_MUSIC.audio.load();
+  if (autoplay) {
+    HOME_MUSIC.audio.play().catch(() => {});
+  }
+  return true;
 }
 
 function selectHomeTrack(index, autoplay = false) {
   const track = HOME_MUSIC.tracks[index];
-  if (!track || track.fileMissing) return;
+  if (!track) return;
   HOME_MUSIC.index = index;
   HOME_MUSIC.progress = 0;
-  HOME_MUSIC.audio.src = track.file;
-  HOME_MUSIC.audio.load();
+  HOME_MUSIC.playPathIndex = 0;
+  loadTrackAudio(track, 0, autoplay);
   updateHomeNowPlaying();
   renderHomeTrackList();
   if (typeof focusVerseFromTrack === "function") focusVerseFromTrack(track);
   else if (typeof applyHomeTrackTheme === "function") applyHomeTrackTheme(track);
-  if (autoplay) {
-    HOME_MUSIC.audio.play().catch(() => {});
-  }
 }
 
 function toggleHomeMusic() {
@@ -432,21 +449,11 @@ function mergeTrackLists(manifestTracks, scannedTracks) {
   return [...map.values()];
 }
 
-function getTrackPlayUrls(track) {
-  const raw = [track.file, ...(track.fileCandidates || [])].filter(Boolean);
-  return [...new Set(raw.map((p) => homeMusicResolve(p)))];
-}
-
 function finalizeHomeTracks(tracks) {
-  return (tracks || []).map((track) => {
-    const playUrls = getTrackPlayUrls(track);
-    return {
-      ...track,
-      playUrls,
-      file: playUrls[0] || homeMusicResolve(track.file),
-      fileMissing: false,
-    };
-  });
+  return (tracks || []).map((track) => ({
+    ...track,
+    playPaths: getTrackPlayPaths(track),
+  }));
 }
 
 async function resolveHomeTrackFiles(tracks) {
@@ -470,18 +477,21 @@ async function loadHomeMusicData() {
   }
 
   let scanned = [];
-  try {
-    const api =
-      typeof fetchSite === "function"
-        ? await fetchSite("./api/music-tracks.json")
-        : await fetch("./api/music-tracks.json");
-    if (api.ok) {
-      const payload = await api.json();
-      scanned = payload?.tracks || [];
-      if (!data && payload) data = payload;
+  const isLocalDev = /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
+  if (isLocalDev) {
+    try {
+      const api =
+        typeof fetchSite === "function"
+          ? await fetchSite("./api/music-tracks.json")
+          : await fetch("./api/music-tracks.json");
+      if (api.ok) {
+        const payload = await api.json();
+        scanned = payload?.tracks || [];
+        if (!data && payload) data = payload;
+      }
+    } catch {
+      /* static */
     }
-  } catch {
-    /* static */
   }
 
   HOME_MUSIC.meta = data || { title: "KAITO 歌曲", tracks: [] };
@@ -521,12 +531,8 @@ async function initHomeMusicPlayer(options = {}) {
   updateHomeNowPlaying();
   startHomeVizLoop();
 
-  if (HOME_MUSIC.tracks.length) {
-    const firstPlayable = HOME_MUSIC.tracks.find((t) => !t.fileMissing) || HOME_MUSIC.tracks[0];
-    if (firstPlayable && !firstPlayable.fileMissing) {
-      HOME_MUSIC.audio.src = firstPlayable.file;
-      if (typeof applyHomeTrackTheme === "function") applyHomeTrackTheme(firstPlayable);
-    }
+  if (HOME_MUSIC.tracks.length && typeof applyHomeTrackTheme === "function") {
+    applyHomeTrackTheme(HOME_MUSIC.tracks[0]);
   }
 
   if (typeof initHomeMusicLinkToggle === "function") initHomeMusicLinkToggle();

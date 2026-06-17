@@ -101,7 +101,7 @@ function playHomeTrackByTitle(title, options = {}) {
   if (!title || !window.HOME_MUSIC?.tracks?.length) return false;
   const idx = findHomeTrackIndexForSong({ name: title, linkTitle: title });
   const track = idx >= 0 ? window.HOME_MUSIC.tracks[idx] : null;
-  if (idx >= 0 && !track?.fileMissing && typeof selectHomeTrack === "function") {
+  if (idx >= 0 && typeof selectHomeTrack === "function") {
     selectHomeTrack(idx, true);
     if (scroll) {
       document.getElementById("home-music")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -117,7 +117,7 @@ function playTodayKaitoSong(song, options = {}) {
 
   const localIdx = findHomeTrackIndexForSong(song);
   const localTrack = localIdx >= 0 ? window.HOME_MUSIC.tracks[localIdx] : null;
-  if (localIdx >= 0 && !localTrack?.fileMissing && typeof selectHomeTrack === "function") {
+  if (localIdx >= 0 && typeof selectHomeTrack === "function") {
     selectHomeTrack(localIdx, true);
     if (scroll) {
       document.getElementById("home-music")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -173,7 +173,7 @@ function todayKaitoEscape(text) {
 function canPlayTodayKaito(song) {
   if (!song) return false;
   const track = getHomeTrackForSong(song);
-  if (track) return !track.fileMissing;
+  if (track) return true;
   return !!song.url;
 }
 
@@ -196,8 +196,8 @@ function renderTodayKaito(milestones) {
   });
   const playable = canPlayTodayKaito(song);
   const localTrack = getHomeTrackForSong(song);
-  const hasLocal = !!localTrack && !localTrack.fileMissing;
-  const missingLocal = !!localTrack?.fileMissing;
+  const hasLocal = !!localTrack;
+  const missingLocal = false;
   const roleLabel =
     typeof getKaitoSongRoleLabel === "function" ? getKaitoSongRoleLabel(song) : "KAITO";
 
