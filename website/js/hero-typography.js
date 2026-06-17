@@ -22,7 +22,7 @@ const HERO_TYPO = {
 };
 
 const HERO_IMAGE = "./assets/kaito-dynamic.png";
-const HERO_CANVAS_WIDTH = 520;
+const HERO_CANVAS_WIDTH = 640;
 const HERO_CELL_SIZE = 6;
 const HERO_PRODUCER_COUNT = 14;
 const HERO_SONG_COUNT = 32;

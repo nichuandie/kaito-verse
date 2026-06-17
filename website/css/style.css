@@ -161,7 +161,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   min-height: calc(100svh - var(--header-h));
-  padding: clamp(0.35rem, 1.1vw, 0.75rem) var(--layout-pad) 130px;
+  padding: clamp(0.85rem, 2.2vw, 1.35rem) var(--layout-pad) 118px;
 }
 
 .hero-showcase::before {
@@ -181,8 +181,8 @@ a:hover {
   position: absolute;
   left: 50%;
   top: 12%;
-  width: min(520px, 85vw);
-  height: min(520px, 85vw);
+  width: min(640px, 90vw);
+  height: min(640px, 90vw);
   transform: translateX(-50%);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(80, 152, 222, 0.1) 0%, transparent 68%);
@@ -216,7 +216,8 @@ a:hover {
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
   gap: clamp(0.75rem, 2vw, 1.35rem);
   align-items: center;
-  min-height: clamp(260px, calc(100svh - var(--header-h) - 155px), 430px);
+  min-height: clamp(300px, calc(100svh - var(--header-h) - 130px), 490px);
+  padding-top: 0.35rem;
 }
 
 .hero-copy {
@@ -234,7 +235,7 @@ a:hover {
   border: 1px solid rgba(143, 212, 240, 0.22);
   background: rgba(143, 212, 240, 0.06);
   color: var(--ice);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.16em;
 }
@@ -261,7 +262,7 @@ a:hover {
 
 .hero-copy h1 {
   margin: 0 0 0.55rem;
-  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  font-size: clamp(2.25rem, 5.2vw, 3.55rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -277,7 +278,7 @@ a:hover {
 .hero-copy p {
   margin: 0 0 1.5rem;
   color: var(--text-muted);
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  font-size: clamp(1.12rem, 2.15vw, 1.28rem);
   line-height: 1.75;
   max-width: 28rem;
 }
@@ -296,7 +297,7 @@ a:hover {
   justify-content: center;
   padding: 0.62rem 1.35rem;
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
@@ -347,7 +348,7 @@ a:hover {
   margin: -0.25rem 0;
   display: inline-block;
   line-height: 0;
-  width: min(100%, 520px);
+  width: min(100%, 640px);
 }
 
 .hero-typo-backdrop {
@@ -372,7 +373,7 @@ a:hover {
   position: relative;
   z-index: 2;
   display: block;
-  max-width: min(100%, 520px);
+  max-width: min(100%, 640px);
   width: 100%;
   height: auto;
   cursor: pointer;
@@ -3129,7 +3130,7 @@ body.custom-cursor * {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 1.35rem;
   z-index: 0;
   height: 130px;
   pointer-events: none;
