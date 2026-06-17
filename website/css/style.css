@@ -13,11 +13,11 @@
   --shadow: 0 8px 32px rgba(8, 28, 56, 0.24);
   --radius: 14px;
   --font: "Noto Sans SC", "Segoe UI", system-ui, sans-serif;
-  --layout-max: min(1560px, 96vw);
-  --layout-pad: clamp(0.85rem, 2vw, 1.35rem);
-  --layout-pad-left: clamp(0.85rem, 2.2vw, 1.5rem);
-  --layout-pad-right: clamp(0.45rem, 1vw, 0.75rem);
-  --header-h: 4rem;
+  --layout-max: min(1200px, 92vw);
+  --layout-pad: clamp(0.75rem, 1.6vw, 1.1rem);
+  --layout-pad-left: clamp(0.75rem, 1.8vw, 1.25rem);
+  --layout-pad-right: clamp(0.4rem, 0.85vw, 0.65rem);
+  --header-h: 3.5rem;
 }
 
 *,
@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
@@ -89,7 +89,7 @@ a:hover {
 }
 
 .logo-img {
-  height: 34px;
+  height: 30px;
   width: auto;
   display: block;
   mix-blend-mode: screen;
@@ -160,8 +160,12 @@ a:hover {
 .hero-showcase {
   position: relative;
   overflow: hidden;
-  padding: clamp(2rem, 5vw, 3.5rem) var(--layout-pad) clamp(1.5rem, 3vw, 2rem);
-  min-height: min(88vh, 780px);
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - var(--header-h));
+  min-height: 480px;
+  max-height: 900px;
+  padding: clamp(0.85rem, 2vw, 1.35rem) var(--layout-pad) 0;
 }
 
 .hero-showcase::before {
@@ -181,8 +185,8 @@ a:hover {
   position: absolute;
   left: 50%;
   top: 12%;
-  width: min(680px, 90vw);
-  height: min(680px, 90vw);
+  width: min(520px, 85vw);
+  height: min(520px, 85vw);
   transform: translateX(-50%);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(80, 152, 222, 0.1) 0%, transparent 68%);
@@ -210,18 +214,21 @@ a:hover {
 .hero-inner {
   position: relative;
   z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   max-width: var(--layout-max);
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  gap: clamp(1.25rem, 3vw, 2.5rem);
+  gap: clamp(0.75rem, 2vw, 1.35rem);
   align-items: center;
-  min-height: clamp(420px, 68vh, 620px);
+  padding-bottom: 0.35rem;
 }
 
 .hero-copy {
   z-index: 1;
-  padding: 0.5rem 0 1rem;
+  padding: 0.15rem 0 0.35rem;
 }
 
 .hero-eyebrow {
@@ -260,8 +267,8 @@ a:hover {
 }
 
 .hero-copy h1 {
-  margin: 0 0 0.85rem;
-  font-size: clamp(2.75rem, 6vw, 4.35rem);
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -336,7 +343,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   min-height: 0;
-  padding: 0.5rem 0;
+  max-height: 100%;
+  padding: 0;
 }
 
 .hero-typo-wrap {
@@ -344,10 +352,11 @@ a:hover {
   will-change: transform;
   filter: drop-shadow(0 16px 48px rgba(0, 80, 200, 0.2));
   transition: filter 0.4s ease, transform 0.4s ease;
-  margin: -0.5rem 0;
+  margin: 0;
   display: inline-block;
   line-height: 0;
-  width: min(100%, 720px);
+  width: min(100%, 480px);
+  max-height: min(46vh, 360px);
 }
 
 .hero-typo-backdrop {
@@ -372,7 +381,8 @@ a:hover {
   position: relative;
   z-index: 2;
   display: block;
-  max-width: min(100%, 720px);
+  max-width: min(100%, 480px);
+  max-height: min(46vh, 360px);
   width: 100%;
   height: auto;
   cursor: pointer;
@@ -380,6 +390,7 @@ a:hover {
   box-shadow: none;
   background: transparent;
   transform: translateX(6%);
+  object-fit: contain;
 }
 
 .hero-typo-tooltip {
@@ -848,19 +859,19 @@ a:hover {
 main {
   max-width: var(--layout-max);
   margin: 0 auto;
-  padding: 0 var(--layout-pad) 4.5rem;
+  padding: 0 var(--layout-pad) 3.5rem;
 }
 
 section {
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 .section-title {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin: 0 0 1.2rem;
-  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
   font-weight: 700;
 }
 
@@ -951,11 +962,11 @@ section {
 
 .chart-box {
   width: 100%;
-  height: 320px;
+  height: 280px;
 }
 
 .chart-box.tall {
-  height: 400px;
+  height: 350px;
 }
 
 /* Placeholder */
@@ -1499,7 +1510,7 @@ tbody tr:hover {
 
 .wiki-silhouette-panel,
 .wiki-sunburst-panel {
-  min-height: clamp(340px, 38vw, 460px);
+  min-height: clamp(280px, 32vw, 380px);
 }
 
 .wiki-sunburst-panel {
@@ -2969,6 +2980,12 @@ body.custom-cursor * {
 }
 
 @media (max-width: 900px) {
+  .hero-showcase {
+    height: auto;
+    min-height: min(88svh, 640px);
+    max-height: none;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
@@ -3121,15 +3138,14 @@ body.custom-cursor * {
 
 /* ── 首页声浪（参考 120712.com） ── */
 .hero-soundwave-band {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  height: 130px;
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 2;
+  height: clamp(88px, 12vh, 118px);
+  margin-top: auto;
   pointer-events: none;
-  mask-image: linear-gradient(to top, black 55%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 55%, transparent 100%);
+  mask-image: linear-gradient(to top, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
 }
 
 .hero-soundwave-band canvas {
@@ -3994,59 +4010,24 @@ body.kaito-birthday-afterglow .hero-showcase {
   }
 }
 
-/* 宽屏：内容区加宽、整体略放大 */
+/* 宽屏：保持紧凑，不再放大 */
 @media (min-width: 1200px) {
-  html {
-    font-size: 17px;
-  }
-
   :root {
-    --layout-max: min(1580px, 97vw);
-  }
-
-  .section-title {
-    font-size: 1.625rem;
-  }
-
-  .section-desc {
-    font-size: 1rem;
-  }
-
-  .chart-box {
-    height: 360px;
-  }
-
-  .chart-box.tall,
-  .wiki-chart-box-tall {
-    height: 440px;
+    --layout-max: min(1220px, 93vw);
   }
 
   .home-music-layout {
-    grid-template-columns: minmax(240px, 300px) 1fr;
+    grid-template-columns: minmax(220px, 280px) 1fr;
   }
 }
 
 @media (min-width: 1600px) {
-  html {
-    font-size: 17.5px;
-  }
-
   :root {
-    --layout-max: min(1620px, 97.5vw);
-    --layout-pad-right: clamp(0.4rem, 0.85vw, 0.65rem);
+    --layout-max: min(1240px, 94vw);
   }
 
   .hero-lead,
   .hero-copy p {
-    max-width: 32rem;
-  }
-
-  .chart-box {
-    height: 380px;
-  }
-
-  .chart-box.tall,
-  .wiki-chart-box-tall {
-    height: 460px;
+    max-width: 28rem;
   }
 }

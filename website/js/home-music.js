@@ -415,17 +415,18 @@ function mergeTrackLists(manifestTracks, scannedTracks) {
 
 async function probeHomeTrackFile(path) {
   const url = homeMusicResolve(path);
-  try {
-    const res = await fetch(url, { method: "HEAD" });
-    if (res.ok) return url;
-  } catch {
-    /* fallback */
-  }
-  try {
-    const res = await fetch(url, { method: "GET", headers: { Range: "bytes=0-0" } });
-    if (res.ok || res.status === 206) return url;
-  } catch {
-    /* skip */
+  const attempts = [
+    { method: "HEAD" },
+    { method: "GET", headers: { Range: "bytes=0-0" } },
+    { method: "GET" },
+  ];
+  for (const opts of attempts) {
+    try {
+      const res = await fetch(url, opts);
+      if (res.ok || res.status === 206) return url;
+    } catch {
+      /* try next */
+    }
   }
   return null;
 }
@@ -475,12 +476,20 @@ async function resolveHomeTrackFiles(tracks) {
 async function verifyHomeTracks(tracks) {
   const ok = [];
   for (const track of tracks) {
-    if (track.kaitoBirthday) {
+    if (track.fileMissing === false) {
       ok.push(track);
       continue;
     }
     const exists = await probeHomeTrackFile(track.file);
-    if (exists) ok.push({ ...track, file: exists, fileMissing: false });
+    if (exists) {
+      ok.push({ ...track, file: exists, fileMissing: false });
+      continue;
+    }
+    ok.push({
+      ...track,
+      file: homeMusicResolve(track.file),
+      fileMissing: true,
+    });
   }
   return ok;
 }
@@ -515,8 +524,7 @@ async function loadHomeMusicData() {
   HOME_MUSIC.meta = data || { title: "KAITO 歌曲", tracks: [] };
   const merged = mergeTrackLists(HOME_MUSIC.meta.tracks, scanned);
   const withPaths = await resolveHomeTrackFiles(merged);
-  const verified = await verifyHomeTracks(withPaths);
-  HOME_MUSIC.tracks = verified.length ? verified : withPaths;
+  HOME_MUSIC.tracks = await verifyHomeTracks(withPaths);
 
   const heading = document.getElementById("home-music-heading");
   const sub = document.getElementById("home-music-sub");
