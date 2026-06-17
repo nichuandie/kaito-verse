@@ -33,13 +33,14 @@ function homeMusicEscape(text) {
 
 function normalizeHomeTrack(track) {
   if (!track?.file) return null;
+  const file = String(track.file).trim();
   const normalized = {
     ...track,
-    file: homeMusicResolve(track.file),
+    file,
   };
   if (track.cover) normalized.cover = homeMusicResolve(track.cover);
   else {
-    const stem = track.file.replace(/^.*\//, "").replace(/\.[^.]+$/, "");
+    const stem = file.replace(/^.*\//, "").replace(/\.[^.]+$/, "");
     normalized.cover = homeMusicResolve(`./music/${stem}.png`);
   }
   return normalized;
@@ -440,9 +441,11 @@ async function resolveHomeTrackFiles(tracks) {
 
   const resolved = [];
   for (const track of tracks) {
-    const paths = track.kaitoBirthday
-      ? [...new Set([track.file, ...(track.fileCandidates || []), ...birthdayCandidates].filter(Boolean))]
-      : [track.file];
+    const rawPaths = track.kaitoBirthday
+      ? [track.file, ...(track.fileCandidates || []), ...birthdayCandidates]
+      : [track.file, ...(track.fileCandidates || [])];
+
+    const paths = [...new Set(rawPaths.filter(Boolean))];
 
     let fileUrl = null;
     for (const path of paths) {
@@ -455,16 +458,11 @@ async function resolveHomeTrackFiles(tracks) {
       continue;
     }
 
-    if (track.kaitoBirthday) {
-      resolved.push({
-        ...track,
-        file: homeMusicResolve(track.file),
-        fileMissing: true,
-      });
-      continue;
-    }
-
-    resolved.push(track);
+    resolved.push({
+      ...track,
+      file: homeMusicResolve(track.file),
+      fileMissing: true,
+    });
   }
   return resolved;
 }

@@ -13,11 +13,12 @@
 
   function resolveSitePath(path) {
     if (!path) return path;
-    const raw = String(path).trim();
+    const raw = String(path).trim().replace(/\\/g, "/");
     if (/^https?:\/\//i.test(raw) || /^data:/i.test(raw) || /^blob:/i.test(raw)) {
       return raw;
     }
     const base = getSiteBase();
+    if (raw.startsWith(base)) return raw;
     const cleaned = raw.replace(/^\/+/, "").replace(/^\.\//, "");
     const encoded = cleaned
       .split("/")
